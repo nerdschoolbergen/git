@@ -39,11 +39,13 @@ With git you can create your own custom commands by writing shell scripts. For t
 **Assignment:**
 
 Create a custom git command called `acp` which will add, commit and push (to current repo) in one command. This command should take two paramteres:
+
 1. What to add (and commit), i.e. the path of the file(s).
 2. A commit message
 
 ### More on forking and pull requests
 For this assignment you will fork a repo to your own account, create a pull request and merge the changes from the pull request into the original repo.
+
 1. Fork the repo on https://github.com/nerdschoolbergen/git-forkme to your own GitHub account
 2. Add a .md file into the `feedback` folder (in your version of the repo). Name this file `feedback-<lastname>.md` and provide some feedback about the workshop.
 3. Create a pull request (let someone else in the workshop handle the PR)
