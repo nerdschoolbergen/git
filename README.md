@@ -11,11 +11,27 @@ Git has won the source control battle for now, and it is a vital tool to learn f
 
 ## Assignments
 
-1.  Do the git-it interactive tutorial.
+### 1.  Do the git-it interactive tutorial.
   * [Download git-it](https://github.com/jlord/git-it-electron/releases)
   * The verify button at the end of each step might not work correctly. You can try run git-it as administrator, but it's not a big issue. If you're confident you've solved the task just move on, or ask an instructor in the room to verify.
 
-### Solving a merge conflict
+### 2. Create aliases for typical git commands
+With git you can create short hand aliases for git-commands. A typical alias for the `add` command is `a`. So instead of typing `git add` you can write `git a`.
+This alias can e created by configuring git:
+```
+git config --global alias.a add
+```
+
+Create your own aliases for the most typical git commands:
+* status
+* add
+* commit
+* push
+* pull
+* merge
+* checkout
+
+### 3. Solving a merge conflict
 
 A merge tool is a tool that compare different versions of a file side by side and let you manually pick and choose lines in order to solve the conflict. First we must install such a tool. We're going to use KDiff3.
 
