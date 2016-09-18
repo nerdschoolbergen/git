@@ -55,7 +55,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 This means git couldn't figure out how to combine the todo.txt with the one we already have.
 
-9. Open todo.txt in a text editor.
+* Open todo.txt in a text editor.
 
 ```
 Things to do today:
@@ -66,4 +66,19 @@ All the things!
 >>>>>>> conflict
 ```
 
-So not only was Git not able to merge the files, it put in some weird stuff and ruined it also! Let's understand what is going on here.
+So not only was Git not able to merge the files, it put in some weird stuff and made it all worse! Let's understand what's going on here.
+
+The content between `<<<<<<< HEAD` and `=======` is what git found at it's HEAD, meaning the latest commit on the current branch.
+
+The content between `=======` and `>>>>>>> conflict` is what we tried to merge into master but couldn't.
+
+#### Solving manually
+
+There is nothing magical about the auto generated content in the file. The easiest way to solve this conflict is simply to delete the stuff you don't want and save the file with the content you deem correct. For example,
+```
+Things to do today:
+Nothing
+```
+If you save the file like this, git is happy and you can continue to commit the changes.
+
+* `git commit -m "Solved nasty merge conflict"`
