@@ -82,3 +82,50 @@ Nothing
 If you save the file like this, git is happy and you can continue to commit the changes.
 
 * `git commit -m "Solved nasty merge conflict"`
+
+#### Solving using a merge tool
+
+Sometimes when there are many lines and many files that has conflicts, it can be hard to read and understand a file with the auto generated merge conflict text. After all, this will be in files with hundreds of lines of code that must compile and work after you're done merging. This is where many people turn to using a merge tool (although you don't have to use one if you don't want to).
+
+We're going to undo our last commit and re-do the merge.
+
+In order to undo our local commit, first we must know it's ID.
+
+* `git log`
+
+A series of git commits should be listed along with a long SHA-1 code which is the ID of the commit. Don't worry, you don't need to write it all, typically git understands what you mean by just typing 4-6 of the first characters of the ID.
+
+For me, the the log looks like this:
+
+```
+commit 0a4eacc090bfe17400ac8e9847c1d7bc3bd9cb6b
+Merge: 336629e fd2417f
+Author: Eirik Årdal <eaardal@outlook.com>
+Date:   Sun Sep 18 17:25:59 2016 +0200
+
+    Solved merge
+
+commit fd2417f000bb80e62766016802f000d07a339a21
+Author: Eirik Årdal <eaardal@outlook.com>
+Date:   Sun Sep 18 16:44:09 2016 +0200
+
+    Added todo.txt
+
+commit 336629e4bf3225ff50dd77b8863f4120cd5808ab
+Author: Eirik Årdal <eaardal@outlook.com>
+Date:   Sun Sep 18 16:43:05 2016 +0200
+
+    Added todo.txt
+
+commit 57191c16a9666137b311a11dd48d62d42adc6312
+Author: Eirik Årdal <eaardal@outlook.com>
+Date:   Sun Sep 18 16:41:30 2016 +0200
+
+    Initial commit
+```
+
+I want to reset to where I had the merge conflict in order to re-do it. This is the commit with ID starting at `fd2417`.
+
+I'm going to use the first bit, `fd2417`, as the ID. Git understands the rest.
+
+* `git reset --hard <YOUR COMMIT ID>`
