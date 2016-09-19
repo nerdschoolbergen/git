@@ -40,7 +40,8 @@ A useful command is `git log` which will list the latest commits done. The defau
 > When in git log mode, exit by typing ":q" as in vim
 
 For example, in SourceTree, a log is shown like this:
-[IMG]
+<br/>
+<a href='http://postimg.org/image/meduuz1bf/' target='_blank'><img src='http://s17.postimg.org/meduuz1bf/react_fastclick_01.png' border='0' alt="react-fastclick-01"/></a><br/><br/>
 
 We can achieve this in the terminal as well by using an alias.
 
@@ -60,8 +61,9 @@ Add the following as aliases in your `.gitconfig`
 
 This adds 3 aliases. The `lg1` and `lg2` aliases is slightly different. Try them out. The `lg` alias basically just calls `lg1` as your default. Change it if you want to.
 
-Using `git lg` I get the following. Note the commit history in the margin.
-[IMG]
+Using `git lg` (mapped to lg2 instead of lg1) I get the following. Note the commit history in the margin.
+<br/>
+<a href='http://postimg.org/image/iw1uyl0ff/' target='_blank'><img src='http://s17.postimg.org/iw1uyl0ff/react_fastclick_lg2.png' border='0' alt="react-fastclick-lg2"/></a><br/><br/>
 
 ### Creating custom git commands
 With git you can create your own custom commands by writing shell scripts. For this to work you must you a specific naming convention for the script file. The file must start with `git-`. So if you want a custom command for adding every file, and you want this command to be named `addall` the file name for the script must be `git-addall`. Also, every custom git script must be added to your `PATH`. When this is done you can for exampuse use `git addall` as a command.
@@ -210,7 +212,8 @@ You should see a message about HEAD being at a different commit now.
 * Verify that we are on a different commit in the log now
 
 By inspecting the log again, we see that the conflict branch and master is on the same commit while develop has diverged.
-[IMG]
+<br/>
+<a href='http://postimg.org/image/sj5d8atez/' target='_blank'><img src='http://s17.postimg.org/sj5d8atez/reset01.png' border='0' alt="reset01"/></a><br/><br/>
 
 * Merge develop into master again.
 
