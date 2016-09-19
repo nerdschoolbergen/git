@@ -33,6 +33,36 @@ Create your own aliases for the most typical git commands:
 * merge
 * checkout
 
+### 2.5. Create alias for improved commit log printout in the terminal
+
+A useful command is `git log` which will list the latest commits done. The default log is pretty basic though. A common tool for understanding git logs is a graph showing how branches and commits diverge and relate.
+
+> When in git log mode, exit by typing ":q" as in vim
+
+For example, in SourceTree, a log is shown like this:
+[IMG]
+
+We can achieve this in the terminal as well by using an alias.
+
+First, we need a bigger repo to play with to illustrate the point.
+
+* `git clone https://github.com/JakeSidSmith/react-fastclick` to your computer
+* `git log` in the directory.
+
+Add the following as aliases in your `.gitconfig`
+
+```
+[alias] <- Skip this header if it exists in the file already
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+```
+
+This adds 3 aliases. The `lg1` and `lg2` aliases is slightly different. Try them out. The `lg` alias basically just calls `lg1` as your default. Change it if you want to.
+
+Using `git lg` I get the following. Note the commit history in the margin.
+[IMG]
+
 ### Creating custom git commands
 With git you can create your own custom commands by writing shell scripts. For this to work you must you a specific naming convention for the script file. The file must start with `git-`. So if you want a custom command for adding every file, and you want this command to be named `addall` the file name for the script must be `git-addall`. Also, every custom git script must be added to your `PATH`. When this is done you can for exampuse use `git addall` as a command.
 
@@ -74,7 +104,9 @@ A merge tool is a tool that compare different versions of a file side by side an
 4. `git clone` the git-mergedemo repository so you can work with it on your computer.
 5. `git status` and verify you're on the master branch.
 
-As you now know, the content of todo.txt is different on the two branches. We're now going to merge both develop and conflict into master since that's where we want to synchronize everything. While in the master branch...
+As you now know, the content of todo.txt is different on the two branches. We're now going to merge both develop and conflict into master since that's where we want to synchronize everything.
+
+While in the master branch...
 
 * `git merge develop`
 * `git status`
@@ -90,6 +122,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 This means git couldn't figure out how to combine the todo.txt with the one we already have.
+
+> The name "conflict" is just the name of the branch in this case. It could of course be anything.
 
 * Open todo.txt in a text editor.
 
@@ -117,7 +151,12 @@ Nothing
 ```
 If you save the file like this, git is happy and you can continue to commit the changes.
 
+* `git status` - everything should look ok - no warning about a conflict now.
+* `git add --a`
 * `git commit -m "Solved nasty merge conflict"`
+* `git status` to verify all is still good. Use this command a lot.
+
+> Git won't allow you to continue as long as the `<<<<<<<< HEAD` and so on is present in a file. You must solve all of these issues in your codebase before you can commit, or checkout branches.
 
 #### Solving using a merge tool
 
@@ -160,8 +199,65 @@ Date:   Sun Sep 18 16:41:30 2016 +0200
     Initial commit
 ```
 
-I want to reset to where I had the merge conflict in order to re-do it. This is the commit with ID starting at `fd2417`.
+I want to reset to before I got the merge conflict in order to re-do it. This is the commit with ID starting at `fd2417`.
 
 I'm going to use the first bit, `fd2417`, as the ID. Git understands the rest.
 
-* `git reset --hard <YOUR COMMIT ID>`
+* `git reset --hard fd2417`
+
+You should see a message about HEAD being at a different commit now.
+
+* Verify that we are on a different commit in the log now
+
+By inspecting the log again, we see that the conflict branch and master is on the same commit while develop has diverged.
+[IMG]
+
+* Merge develop into master again.
+
+> Remember that when doing git merge, you're merging the target branch into the current branch.
+
+The conflict should be back now. Great!
+
+Open the file in the default merge tool, KDiff3
+
+* `git mergetool todo.txt`
+
+A program with 3 windows should pop up and the terminal window is locked until we have exited and closed the KDiff3 process.
+
+Window A (top left corner) should be named Local and is the content of the local branch you tried to merge into master.
+
+Window B (top right corner) should be named Remote and is the content git has at HEAD
+
+Output (bottom window) is the result.
+
+The workflow here is easy: you choose and pick lines from Window A and B to make the final version in Output.
+
+* Right click on the line `<Merge Conflict>` in Output. It should give you the option to Select lines from A/B. Pick one.
+
+Save the file and close KDiff3 enitrely. The terminal should resume and fininsh the previous `git mergetool` command which has been locking the terminal until now.
+
+* `git status`
+
+```
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        todo.txt.orig
+        todo_BACKUP_7068.txt
+        todo_BASE_7068.txt
+        todo_LOCAL_7068.txt
+        todo_REMOTE_7068.txt
+```
+
+Since merge conflict can (and will) go horribly bad sometimes, and people for some reason _hate_ to rewrite code caused by this, most merge tools automatically creates backup files of each version you worked with. You can look these over if you think you missed something, but typically we just delete them.
+
+* Delete all files listed as new (all files in the example above) by using the terminal only.
+
+* Doing a `git status` should say you're ahead by 1 commit but note the part which says **All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)**.
+
+* Follow the instructions in the message and finish up.
+
+* Verify all looks good with `git lg`
+
+:tada:
