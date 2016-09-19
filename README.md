@@ -65,17 +65,7 @@ Using `git lg` (mapped to lg2 instead of lg1) I get the following. Note the comm
 <br/>
 <a href='http://postimg.org/image/iw1uyl0ff/' target='_blank'><img src='http://s17.postimg.org/iw1uyl0ff/react_fastclick_lg2.png' border='0' alt="react-fastclick-lg2"/></a><br/><br/>
 
-### Creating custom git commands
-With git you can create your own custom commands by writing shell scripts. For this to work you must you a specific naming convention for the script file. The file must start with `git-`. So if you want a custom command for adding every file, and you want this command to be named `addall` the file name for the script must be `git-addall`. Also, every custom git script must be added to your `PATH`. When this is done you can for exampuse use `git addall` as a command.
-
-**Assignment:**
-
-Create a custom git command called `acp` which will add, commit and push (to current repo) in one command. This command should take two paramteres:
-
-1. What to add (and commit), i.e. the path of the file(s).
-2. A commit message
-
-### More on forking and pull requests
+### 3. More on forking and pull requests
 For this assignment you will fork a repo to your own account, create a pull request and merge the changes from the pull request into the original repo.
 
 1. Fork the repo on https://github.com/nerdschoolbergen/git-forkme to your own GitHub account
@@ -83,7 +73,7 @@ For this assignment you will fork a repo to your own account, create a pull requ
 3. Create a pull request (let someone else in the workshop handle the PR)
 4. Handle someone else's PR and add the changes to the original repo.
 
-### 3. Solving a merge conflict
+### 4. Solving a merge conflict
 
 A merge tool is a tool that compare different versions of a file side by side and let you manually pick and choose lines in order to solve the conflict. First we must install such a tool. We're going to use KDiff3.
 
@@ -264,3 +254,15 @@ Since merge conflict can (and will) go horribly bad sometimes, and people for so
 * Verify all looks good with `git lg`
 
 :tada:
+
+## Bonus
+
+### 5. Creating custom git commands
+With git you can create your own custom commands by writing shell scripts. For this to work you must you a specific naming convention for the script file. The file must start with `git-`. So if you want a custom command for adding every file, and you want this command to be named `addall` the file name for the script must be `git-addall`. Also, every custom git script must be added to your `PATH`. When this is done you can for exampuse use `git addall` as a command.
+
+**Assignment:**
+
+Create a custom git command called `acp` which will add, commit and push (to current repo) in one command. This command should take two paramteres:
+
+1. What to add (and commit), i.e. the path of the file(s).
+2. A commit message
