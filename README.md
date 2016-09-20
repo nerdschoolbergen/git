@@ -65,6 +65,8 @@ Using `git lg` (mapped to lg2 instead of lg1) I get the following. Note the comm
 <br/>
 <a href='http://postimg.org/image/iw1uyl0ff/' target='_blank'><img src='http://s17.postimg.org/iw1uyl0ff/react_fastclick_lg2.png' border='0' alt="react-fastclick-lg2"/></a><br/><br/>
 
+(You can delete the react-fastclick repository)
+
 ### 3. More on forking and pull requests
 For this assignment you will fork a repo to your own account, create a pull request and merge the changes from the pull request into the original repo.
 
