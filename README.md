@@ -95,12 +95,20 @@ A merge tool is a tool that compare different versions of a file side by side an
   Things to do today:
   All the things!
   ```
-4. `git clone` the git-mergedemo repository so you can work with it on your computer.
-5. `git status` and verify you're on the master branch.
+* `git clone` the git-mergedemo repository so you can work with it on your computer.
+* `git status` and verify you're on the master branch.
 
 As you now know, the content of todo.txt is different on the two branches. We're now going to merge both develop and conflict into master since that's where we want to synchronize everything.
 
-While in the master branch...
+* `git branch -l` to list all branches
+
+You only clone the default branch, so only master will show up here. But we just saw on GitHub that there are more branches.
+
+* `git checkout develop` should return a message saying we now have a local branch that tracks the remote develop branch (the origin)
+* `git checkout conflict` should do the same thing for the conflict branch
+* `git branch -l` should now list master, develop, and conflict
+
+Figure out which branch you're on, then, making sure you're on the master branch, do...
 
 * `git merge develop`
 * `git status`
