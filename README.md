@@ -71,7 +71,7 @@ Using `git lg` (mapped to lg2 instead of lg1) I get the following. Note the comm
 For this assignment you will fork a repo to your own account, create a pull request and merge the changes from the pull request into the original repo.
 
 1. Fork the repo on https://github.com/nerdschoolbergen/git-forkme to your own GitHub account
-2. Add a .md file into the `feedback` folder (in your version of the repo). Name this file `feedback-<lastname>.md` and provide some feedback about the workshop.
+2. Add a .md file into the `feedback` folder (in your version of the repo). Name this file `feedback-<yourgithubusername>.md` (this is important because we need to add your user ass a collaborator to the repository) and provide some feedback about the workshop.
 3. Create a pull request (let someone else in the workshop handle the PR)
 4. Handle someone else's PR and add the changes to the original repo.
 
