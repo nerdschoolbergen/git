@@ -149,7 +149,7 @@ You should see a message about HEAD being at a different commit now.
 
 By inspecting the log again, we see that the conflict branch and master is on the same commit while develop has diverged.
 <br/>
-<a href='http://postimg.org/image/sj5d8atez/' target='_blank'><img src='http://s17.postimg.org/sj5d8atez/reset01.png' border='0' alt="reset01"/></a><br/><br/>
+![reset-1](./images/reset01.png)
 
 * Merge develop into master again.
 
