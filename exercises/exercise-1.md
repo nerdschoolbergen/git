@@ -7,6 +7,6 @@ Git-it is a desktop (Mac, Windows and Linux) app that teaches you how to use Git
 
 ## 1.1 Getting started with Git-it
 
-To follow this exercise, you will need Git-it [Download Git-it here](https://github.com/jlord/git-it-electron/releases) and get started!
+:pencil2: To follow this exercise, you will need Git-it [Download Git-it here](https://github.com/jlord/git-it-electron/releases) and get started!
 
 :bulb: The verify button at the end of each step might not work correctly. You can try run git-it as administrator, but it's not a big issue. If you're confident you've solved the task just move on, or ask an instructor in the room to verify.

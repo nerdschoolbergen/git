@@ -8,13 +8,16 @@ A merge tool is a tool that compare different versions of a file side by side an
 - Use KDiff3 for merging
 
 ## 4.1 - Getting started
-:pencil: Download and install a merge tool ([KDiff3](http://kdiff3.sourceforge.net/))
 
-:pencil: Configure git to use KDiff3 as the default merge tool.
+:pencil2: Do the following steps:
 
-:pencil: Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
+- Download and install a merge tool ([KDiff3](http://kdiff3.sourceforge.net/))
 
-:pencil: Go to https://github.com/nerdschoolbergen/git-mergedemo
+- Configure git to use KDiff3 as the default merge tool.
+
+- Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
+
+- Go to https://github.com/nerdschoolbergen/git-mergedemo
   * In the "Branches" dropdown list, verify that there are 3 branches: master, develop, and conflict.
   * Change the current branch to be develop and verify that the contents of todo.txt is
   ```
@@ -26,29 +29,29 @@ A merge tool is a tool that compare different versions of a file side by side an
   Things to do today:
   All the things!
   ```
-:pencil: `git clone` the git-mergedemo repository so you can work with it on your computer.
-:pencil: `git status` and verify you're on the master branch.
+- `git clone` the git-mergedemo repository so you can work with it on your computer.
+- `git status` and verify you're on the master branch.
 
 As you now know, the content of todo.txt is different on the two branches. We're now going to merge both develop and conflict into master since that's where we want to synchronize everything.
 
-:pencil: Type `git branch -l` to list all branches
+- Type `git branch -l` to list all branches
 
 You only clone the default branch, so only master will show up here. But we just saw on GitHub that there are more branches.
 
-:pencil: Type `git checkout develop`. This should return a message saying we now have a local branch that tracks the remote develop branch (the origin)
+- Type `git checkout develop`. This should return a message saying we now have a local branch that tracks the remote develop branch (the origin)
 
-:pencil: Type `git checkout conflict`. This should do the same thing for the conflict branch.
+- Type `git checkout conflict`. This should do the same thing for the conflict branch.
 
-:pencil: Type `git branch -l`. This should now list master, develop, and conflict
+- Type `git branch -l`. This should now list master, develop, and conflict
 
 Figure out which branch you're on, then, making sure you're on the master branch, do...
 
-:pencil: `git merge develop`
-:pencil: `git status`
+ - `git merge develop`
+ - `git status`
 
 So far, so good.
 
-:pencil: `git merge conflict`
+- `git merge conflict`
 
 ```
 Auto-merging todo.txt
@@ -60,7 +63,7 @@ This means git couldn't figure out how to combine the todo.txt with the one we a
 
 :bulb: The name "conflict" is just the name of the branch in this case. It could of course be anything.
 
-:pencil: Open todo.txt in a text editor.
+- Open todo.txt in a text editor.
 
 ```
 Things to do today:
@@ -97,11 +100,11 @@ If you save the file like this, git is happy and you can continue to commit the 
 
 Sometimes when there are many lines and many files that has conflicts, it can be hard to read and understand a file with the auto generated merge conflict text. After all, this will be in files with hundreds of lines of code that must compile and work after you're done merging. This is where many people turn to using a merge tool (although you don't have to use one if you don't want to).
 
-We're going to undo our last commit and re-do the merge.
+:pencil2: We're going to undo our last commit and re-do the merge.
 
 In order to undo our local commit, first we must know it's ID.
 
-:pencil: Type `git log` into your terminal.
+- Type `git log` into your terminal.
 
 A series of git commits should be listed along with a long SHA-1 code which is the ID of the commit. Don't worry, you don't need to write it all, typically git understands what you mean by just typing 4-6 of the first characters of the ID.
 
@@ -156,7 +159,7 @@ The conflict should be back now. Great!
 
 Open the file in the default merge tool, KDiff3
 
-:pencil: Type `git mergetool todo.txt` into your terminal.
+- Type `git mergetool todo.txt` into your terminal.
 
 A program with 3 windows should pop up and the terminal window is locked until we have exited and closed the KDiff3 process.
 
@@ -168,11 +171,11 @@ Output (bottom window) is the result.
 
 The workflow here is easy: you choose and pick lines from Window A and B to make the final version in Output.
 
-:pencil: Right click on the line `<Merge Conflict>` in Output. It should give you the option to Select lines from A/B. Pick one.
+- Right click on the line `<Merge Conflict>` in Output. It should give you the option to Select lines from A/B. Pick one.
 
 Save the file and close KDiff3 enitrely. The terminal should resume and fininsh the previous `git mergetool` command which has been locking the terminal until now.
 
-:pencil: Type `git status` into your terminal
+- Type `git status` into your terminal
 
 ```
 Untracked files:
@@ -187,13 +190,13 @@ Untracked files:
 
 Since merge conflict can (and will) go horribly bad sometimes, and people for some reason _hate_ to rewrite code caused by this, most merge tools automatically creates backup files of each version you worked with. You can look these over if you think you missed something, but typically we just delete them.
 
-:pencil: Delete all files listed as new (all files in the example above) by using the terminal only.
+- Delete all files listed as new (all files in the example above) by using the terminal only.
 
-:pencil: Doing a `git status` should say you're ahead by 1 commit but note the part which says **All conflicts fixed but you are still merging.
+- Doing a `git status` should say you're ahead by 1 commit but note the part which says **All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)**.
 
-:pencil: Follow the instructions in the message and finish up.
+- Follow the instructions in the message and finish up.
 
-:pencil: Verify all looks good with `git lg`
+- Verify all looks good with `git lg`
 
 :tada:
