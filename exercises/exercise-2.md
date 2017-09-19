@@ -56,3 +56,19 @@ Using `git lg` (mapped to lg2 instead of lg1) I get the following. Note the comm
 ![source-tree-2](./images/react-fastclick-2.png)
 
 (You can delete the react-fastclick repository)
+
+## 2.3 - Chaining commands in an alias
+
+So far we've used Git's internal handling of aliases to map one git command into to another name. But we can also leverage another mechanism, which is to just pass the alias command on to the terminal itself. We do this by prefixing the command with `!`. The alias `add_status = !"git add --a && git status"` basically says that "just pass this command on to the terminal and let it execute it for me", thus bypassing Git's handling of the alias. This can be practical (but also error-prone) for doing more advanced aliases. Here's a few examples:
+
+```
+a = !"git add --a && git status"
+co = !"git checkout && git status"
+ac = !"git add --a && git commit -m \"$1\" && git lg2 -1 HEAD && :"
+delbr = !"git branch -d \"$1\" && git push origin --delete \"$1\" && git status && :"
+```
+(As you can see, I find it really practical to always include a `git status` at the end ;) )
+
+Note that I end all commands _that accepts one or more parameters ($1, $2, etc)_ with a `&& :`. This is to short-circuit the command to avoid some strange behaviour from Git (discussed here https://stackoverflow.com/a/25915221). This is probably a Windows-only quirk which you may not need on Mac/Linux.
+
+:pencil2: Make some more aliases using the chaining approach. What about a command that pulls master from origin then prints status? Or an alias that adds all files, then commits with a message, then pushes to origin, then logs the latest commit? Be creative!
