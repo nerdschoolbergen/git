@@ -72,3 +72,5 @@ delbr = !"git branch -d \"$1\" && git push origin --delete \"$1\" && git status 
 Note that I end all commands _that accepts one or more parameters ($1, $2, etc)_ with a `&& :`. This is to short-circuit the command to avoid some strange behaviour from Git (discussed here https://stackoverflow.com/a/25915221). This is probably a Windows-only quirk which you may not need on Mac/Linux.
 
 :pencil2: Make some more aliases using the chaining approach. What about a command that pulls master from origin then prints status? Or an alias that adds all files, then commits with a message, then pushes to origin, then logs the latest commit? Be creative!
+
+### [Go to exercise 3](./exercise-3.md)
