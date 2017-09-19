@@ -1,5 +1,5 @@
 
-# Exercise 4 - Solving a merge conflict
+# Exercise 3 - Solving a merge conflict
 
 A merge tool is a tool that compare different versions of a file side by side and let you manually pick and choose lines in order to solve the conflict. First we must install such a tool. We're going to use KDiff3.
 
@@ -7,7 +7,7 @@ A merge tool is a tool that compare different versions of a file side by side an
 - Learn about merging and merge tools
 - Use KDiff3 for merging
 
-## 4.1 - Getting started
+## 3.1 - Getting started
 
 :pencil2: Do the following steps:
 
@@ -200,3 +200,5 @@ Since merge conflict can (and will) go horribly bad sometimes, and people for so
 - Verify all looks good with `git lg`
 
 :tada:
+
+### [Go to bonus exercise](./exercise-4-bonus.md)
