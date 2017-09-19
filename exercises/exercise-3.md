@@ -15,7 +15,7 @@ A merge tool is a tool that compare different versions of a file side by side an
 
 - Configure git to use KDiff3 as the default merge tool.
 
-- Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
+- Type the listed commands from the following Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
 
 - Go to https://github.com/nerdschoolbergen/git-mergedemo
   * In the "Branches" dropdown list, verify that there are 3 branches: master, develop, and conflict.
