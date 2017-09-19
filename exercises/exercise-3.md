@@ -36,7 +36,7 @@ As you now know, the content of todo.txt is different on the two branches. We're
 
 - Type `git branch -l` to list all branches
 
-You only clone the default branch, so only master will show up here. But we just saw on GitHub that there are more branches.
+You only cloned the default branch, so only master will show up here. But we just saw on GitHub that there are more branches.
 
 - Type `git checkout develop`. This should return a message saying we now have a local branch that tracks the remote develop branch (the origin)
 
