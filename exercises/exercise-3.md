@@ -16,6 +16,7 @@ A merge tool is a tool that compare different versions of a file side by side an
 - Configure git to use KDiff3 as the default merge tool.
 
 - Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
+  * If you are on MacOS and installed KDiff3 with the binary: Move the KDiff3.app file into your `Applications` folder and use the path `/Applications/kdiff3.app/Contents/MacOS/kdiff3`
 
 - Go to https://github.com/nerdschoolbergen/git-mergedemo
   * In the "Branches" dropdown list, verify that there are 3 branches: master, develop, and conflict.
@@ -173,7 +174,7 @@ The workflow here is easy: you choose and pick lines from Window A and B to make
 
 - Right click on the line `<Merge Conflict>` in Output. It should give you the option to Select lines from A/B. Pick one.
 
-Save the file and close KDiff3 enitrely. The terminal should resume and fininsh the previous `git mergetool` command which has been locking the terminal until now.
+Save the file and close KDiff3 entirely. The terminal should resume and fininsh the previous `git mergetool` command which has been locking the terminal until now.
 
 - Type `git status` into your terminal
 
