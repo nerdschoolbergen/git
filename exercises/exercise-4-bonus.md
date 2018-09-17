@@ -6,7 +6,7 @@
 
 **Assignment:**
 
-:pencil2: Create a custom git command called `acp` which will add, commit and push (to current repo) in one command. This command should take two paramteres:
+:pencil2: Create a custom git command called `acp` which will add, commit and push (to current repo) in one command. This command should take two parameters:
 
 1. What to add (and commit), i.e. the path of the file(s).
 2. A commit message
