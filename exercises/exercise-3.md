@@ -19,19 +19,19 @@ A merge tool is a tool that compare different versions of a file side by side an
   * If you are on MacOS and installed KDiff3 with the binary: Move the KDiff3.app file into your `Applications` folder and use the path `/Applications/kdiff3.app/Contents/MacOS/kdiff3`
 
 - Go to https://github.com/nerdschoolbergen/git-mergedemo
-  * In the "Branches" dropdown list, verify that there are 3 branches: master, develop, and conflict.
-  * Change the current branch to be develop and verify that the contents of todo.txt is
+  * In the "Branches" dropdown list, verify that there are 3 branches: **master**, **develop**, and **conflict**.
+  * Change the current branch to be **develop** and verify that the contents of todo.txt is
   ```
   Things to do today:
   Nothing
   ```
-  * Change the current branch to be conflict and verify that the content is now
+  * Change the current branch to be **conflict** and verify that the content is now
   ```
   Things to do today:
   All the things!
   ```
 - `git clone` the git-mergedemo repository so you can work with it on your computer.
-- `git status` and verify you're on the master branch.
+- `git status` and verify you're on the **master** branch.
 
 As you now know, the content of todo.txt is different on the two branches. We're now going to merge both develop and conflict into master since that's where we want to synchronize everything.
 
@@ -43,9 +43,9 @@ You only cloned the default branch, so only master will show up here. But we jus
 
 - Type `git checkout conflict`. This should do the same thing for the conflict branch.
 
-- Type `git branch -l`. This should now list master, develop, and conflict
+- Type `git branch -l`. This should now list **master**, **develop**, and **conflict**
 
-Figure out which branch you're on, then, making sure you're on the master branch, do...
+Figure out which branch you're on, then, making sure you're on the **master** branch, do...
 
  - `git merge develop`
  - `git status`
@@ -53,6 +53,8 @@ Figure out which branch you're on, then, making sure you're on the master branch
 So far, so good.
 
 - `git merge conflict`
+
+The following should be printed in the console:
 
 ```
 Auto-merging todo.txt
@@ -62,9 +64,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 This means git couldn't figure out how to combine the todo.txt with the one we already have.
 
-:bulb: The name "conflict" is just the name of the branch in this case. It could of course be anything.
+> :bulb: The name `conflict` is just the name of a branch in this case. We could of course name this branch anything.
 
-- Open todo.txt in a text editor.
+- Open todo.txt in a text editor. It should look like this:
 
 ```
 Things to do today:
@@ -77,9 +79,9 @@ All the things!
 
 So not only was Git not able to merge the files, it put in some weird stuff and made it all worse! Let's understand what's going on here.
 
-The content between `<<<<<<< HEAD` and `=======` is what git found at it's HEAD, meaning the latest commit on the current branch.
+The content between `<<<<<<< HEAD` and `=======` is what git found at it's HEAD, meaning the latest commit on the **current branch**.
 
-The content between `=======` and `>>>>>>> conflict` is what we tried to merge into master but couldn't.
+The content between `=======` and `>>>>>>> conflict` is what we tried to **merge into master** but couldn't.
 
 #### Solving manually
 
@@ -88,7 +90,7 @@ There is nothing magical about the auto generated content in the file. The easie
 Things to do today:
 Nothing
 ```
-If you save the file like this, git is happy and you can continue to commit the changes.
+If you save the file like this, git is happy and you can continue to commit the changes. Do the following:
 
 * `git status` - everything should look ok - no warning about a conflict now.
 * `git add --a`
@@ -189,7 +191,7 @@ Untracked files:
         todo_REMOTE_7068.txt
 ```
 
-Since merge conflict can (and will) go horribly bad sometimes, and people for some reason _hate_ to rewrite code caused by this, most merge tools automatically creates backup files of each version you worked with. You can look these over if you think you missed something, but typically we just delete them.
+Since merge conflict can (and will) go horribly bad sometimes, most merge tools automatically creates backup files of each version you worked with. You can look these over if you think you missed something, but typically we just delete them.
 
 - Delete all files listed as new (all files in the example above) by using the terminal only.
 
