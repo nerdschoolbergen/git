@@ -23,6 +23,19 @@ git config --global alias.a add
 * merge
 * checkout
 
+## 2.1.1 - A sidenote on .gitconfig
+
+Global configurations to Git (commands done with `--global`) are saved to a global `.gitconfig` file on your computer. You can open this file in any text editor (windows users should avoid Notepad) and add/edit/delete the settings there at any time.  
+
+On Windows this file will be located at `C:\Users\YOUR_USER\.gitconfig`  
+
+On Linux or Mac this file will be located at `~\.gitconfig` (aka `\home\YOUR_USER\.gitconfig`).  
+
+:grey_exclamation: Note that filenames starting with a dot means hidden in linux/mac so you might need to enable some setting to show dot-files in your OS window.  
+
+:grey_exclamation: When using the command line on linux or mac you can use `ls -a` to list hidden files
+
+
 ## 2.2 - Create alias for improved commit log
 
 A useful command is `git log` which will list the latest commits done. The default log is pretty basic though. A common tool for understanding git logs is a graph showing how branches and commits diverge and relate.
