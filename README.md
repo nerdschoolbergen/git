@@ -1,14 +1,13 @@
 # Git
 Git has won the source control battle for now, and it is a vital tool to learn for any developer today. Learn the basic commands and workflow in this lesson.
 
-## [Open presentation slides](https://drive.google.com/open?id=1lU3hJgiYhOI1fBQuRpRBunFIGx2euhEbv6Mdf_n1ZBs)
+## [Open presentation slides](https://docs.google.com/presentation/d/1a5n-wDBBnnWA-WcMNKv9fSFDXOez6sTPLMn5NfpIViI/edit#slide=id.g606fac4cf9_0_0)
 
 ## What you need
 
 * Make sure Git is installed and is available from the command line (`` git --version`` should not produce an error). [Install Git](https://git-scm.com/downloads) if you do not already have it. 
 
-* A good text editor of your choice, such as [Atom](https://atom.io/), [SublimeText](https://www.sublimetext.com/), or [Visual Studio Code](https://www.visualstudio.com/). If you don't have a favorite already, we recommend [Atom](
-https://atom.io/).
+* A good text editor of your choice, such as [Atom](https://atom.io/), [SublimeText](https://www.sublimetext.com/), or [Visual Studio Code](https://www.visualstudio.com/).
 
 ## How to get started
 
