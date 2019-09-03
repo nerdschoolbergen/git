@@ -15,7 +15,7 @@ A merge tool is a tool that compare different versions of a file side by side an
 
 - Configure git to use KDiff3 as the default merge tool.
 
-- Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841
+- Type the following from the Stack Owerflow post into your terminal without copy & pasting http://stackoverflow.com/a/33348841 (It is important that the path to the Kdiff3 executable is correct).
   * If you are on MacOS and installed KDiff3 with the binary: Move the KDiff3.app file into your `Applications` folder and use the path `/Applications/kdiff3.app/Contents/MacOS/kdiff3`
 
 - Go to https://github.com/nerdschoolbergen/git-mergedemo
