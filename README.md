@@ -1,7 +1,7 @@
 # Git
 Git has won the source control battle for now, and it is a vital tool to learn for any developer today. Learn the basic commands and workflow in this lesson.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1a5n-wDBBnnWA-WcMNKv9fSFDXOez6sTPLMn5NfpIViI/edit#slide=id.g606fac4cf9_0_0)
+## [Open presentation slides](https://docs.google.com/presentation/d/1xve0CA7Do3xa_bSylbSFofmJdS8BKkaV/edit#slide=id.p16)
 
 ## What you need
 
