@@ -16,12 +16,21 @@ When working together, it's very common to use git branches. When you create a b
 
 :pencil2: Check that you are on the `main` branch (`git branch`) and then check out a new branch with the command `git checkout -b feature-branch-1`. This will check out a new branch named `feature-branch-1` that branches from where you were, `main`. Now you can freely work in this branch (and push the branch to a remote repository) and work undisturbed.
 
-:pencil2: Create a file named index.ts in your repository and add the following content to the file. Commit the file to your local repository with an appropriate commit message.
+:pencil2: Create a file named `index.ts` in your repository and add the following content to the file. Commit the file to your local repository with an appropriate commit message.
 
 ```ts
 export const greeting = (name: string) => {
   console.log(`Hello ${name}`);
 };
+```
+
+:book: Below is a diagram to help you visualize how branching works: 
+```mermaid
+gitGraph
+   commit id: "Initial commit"
+   branch feature-branch-1
+   checkout feature-branch-1
+   commit id: "Add new file index.ts"
 ```
 
 ### 2.1.2 - Using `git diff`
@@ -38,7 +47,8 @@ export const greeting = (firstname: string, lastname: string) => {
 
 ![git diff i VS code](../images/vscode-gitdiff.png)
 
-## 2.2 - Merging av brancher
+## 2.2 - Merging branches
+
 :bulb: When working together, we typically make changes in a branch and merge to a central branch (`main` or `master`). This way we can separate finished and unfinished code, and can work freely in our own branch until our work is ready to go into the central branch (and further out to production).
 
 :bulb: When you merge a branch, we create a dedicated commit in the git history that describes the changes in the commits you're merging in. This acts as a bridge between the history in the 2 different branches and ensures we get a shared history in the branch we're merging into.
@@ -50,9 +60,21 @@ git checkout main
 git merge feature-branch-1
 ```
 
-An editor window will open (e.g. Visual Studio Code, Vi, Nano). This is in case you want to further describe the merge commit.
+:book: An editor window will open (e.g. Visual Studio Code, Vi, Nano). This is in case you want to further describe the merge commit.
 
 :pencil2: Save and close the editor window to complete the merge.
+
+
+:book: Below is an updated version of our diagram: 
+```mermaid
+gitGraph
+   commit id: "Initial commit"
+   branch feature-branch-1
+   checkout feature-branch-1
+   commit id: "Add new file index.ts"
+   checkout main
+   merge feature-branch-1
+```
 
 ## 2.3 - Conflicts
 
