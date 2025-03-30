@@ -52,22 +52,33 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :pencil2: Add a file called `README.md`. Add appropriate text to the file (e.g., `"Nerdschool git workshop"`).
 
-:pencil2: Check in the file to your local repository. You do this in two steps:
+:pencil2: Check the status of the file using the command `git status`. Here you should see the file you added under `Untracked files`. This means that the file exists in the filesystem, but has not yet been added to the "staging area".
 
-1. `git add README.md` adds the file to the repo's "staging area," where it is prepared to be committed.
-2. `git commit -m "Initial commit"` commits the file to your local repository. `"Initial commit"` is the message associated with the commit. You can write whatever you want here, but `"Initial commit"` is often a good message to describe a repository's first commit.
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/1-untracked-file.png" alt="Alt Text" width="600">
+</div>
 
-:pencil2: Check the commit in the history. To see this in the terminal, you can type:
+:pencil2: Add the file to the staging area. You can do this with the command `git add README.md`. Check the status again with the command `git status`.
 
-```
-git log
-```
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/1-staged-file.png" alt="Alt Text" width="500">
+</div>
 
-:bulb: You have now created a git repository and made the first commit via the command line. Good job! Now we have all the work locally on our own machine, but we would like to check in the code to a central place.
+:pencil2: Create a commit that includes the file you created using the command `git commit -m <message>`. Write an appropriate commit message (`"Initial commit"` is often a suitable message for the first commit in a repository).
 
-:pencil2: Create a GitHub repository on github.com. If you do not have a GitHub account, you need to create one. Go to your profile and select the "Repositories" tab. Here you will find a large green button titled "New"
+:pencil2: Check that you have a commit in your commit log by using the command `git log`.
 
-<div style="text-align: center">
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/1-git-log-initial-commit.png" alt="Alt Text" width="500">
+</div>
+
+:bulb: You have now created a git repository and made your first commit via the command line. Well done! Now we have all work locally on our own machine, but we would like to check in the code to a central location.
+
+## 1.4 - Create GitHub Repository
+
+:pencil2: Create a GitHub repository on github.com. If you don't have a GitHub account, you'll need to create one. Go to your profile and select the "Repositories" tab. Here you'll find a large green button labeled "New"
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
   <img src="../images/nytt-repo.png" alt="Alt Text" width="400" >
 </div>
 
@@ -76,18 +87,17 @@ git log
 
 :book: You will come to the following screen, where you need the bottom instructions (**`push an existing repository from the command line`**)
 
-<div style="text-align: center">
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
   <img src="../images/opprettet-repo.png" alt="Alt Text" width="600">
 </div>
 
+After following the instructions on Github, you will have:
 
-:book: After you have followed the instructions on GitHub, you will have:
+- Set up your local repository to track a "remote repository" / "remote origin"
+- Your Git branch named `main` (If you were on branch `master` it will now be `main`)
+- Pushed your changes to remote origin
 
-- Set up your local repository to track a "remote repository" / "remote origin".
-- Renamed your Git branch to `main` (If you were on the `master` branch, it is now `main`).
-- Pushed your changes to the remote origin
-
-:pencil2: To simulate a change outside your own machine, click the pencil icon on github.com and change a file. In your terminal, type `git pull` to fetch the latest changes.
+:pencil2: To simulate a change outside your own machine, click the pencil icon on github.com and edit a file. In your terminal, type `git pull` to fetch the latest changes.
 
 ---
 
