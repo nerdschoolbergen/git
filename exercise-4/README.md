@@ -14,14 +14,56 @@ We will now put ourselves in a situation similar to before, where we need to mer
 
 :pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-change-1.ts`. Commit the changes in your branch.
 
+```mermaid
+gitGraph
+   commit id: "..."
+   branch feature-branch-5
+   commit id: "Updated index.ts"
+```
+
 :pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-6`. Replace the contents of `code/index.ts` with the contents of `code/4.1-change-2.ts`.
+
+```mermaid
+gitGraph
+   commit id: "..."
+   branch feature-branch-5
+   commit id: "Updated index.ts (change 1)"
+   checkout main
+   branch feature-branch-6
+   commit id: "Updated index.ts (change 2)"
+```
 
 :pencil2: Merge `feature-branch-5` into `main`.
 
-:pencil2: Go into `feature-branch-5`. Rebase the changes from `main` into `feature-branch-5`. You can do this with the following command:
+```mermaid
+gitGraph
+   commit id: "..."
+   branch feature-branch-5
+   commit id: "Updated index.ts (change 1)"
+   checkout main
+   branch feature-branch-6
+   commit id: "Updated index.ts (change 2)"
+   checkout main
+   merge feature-branch-5
+```
+
+:pencil2: Go into `feature-branch-6`. Rebase the changes from `main` into `feature-branch-6`. You can do this with the following command:
 
 ```
 git rebase main
+```
+
+```mermaid
+gitGraph
+   commit id: "..."
+   branch feature-branch-5
+   commit id: "Updated index.ts (change 1)"
+   checkout main
+   merge feature-branch-5
+   checkout feature-branch-5
+   checkout main
+   branch feature-branch-6
+   commit id: "Updated index.ts (change 2)"
 ```
 
 :bulb: You generally never want to rebase in main. That would rewrite the history in the shared working branch.
