@@ -17,7 +17,7 @@ If Git is not installed, you can find instructions for installing it on all oper
 
 ### Editor
 
-You are free to use the code editor of your choice, but we highly recommend Visual Studio Code.
+You are free to use the code editor of your choice, but we highly recommend [Visual Studio Code](https://code.visualstudio.com/).
 
 ## How to get started
 
