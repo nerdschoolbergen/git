@@ -12,7 +12,7 @@ After completing this exercise, you should be able to:
   - `git push` (Push files to the remote repository)
   - `git pull` (Fetch files from the remote repository)
 
-## 1.1 Configuring Git
+## 1.1 - Configuring Git
 
 :bulb: In this section, we will set up a configuration that describes "who you are" in Git. You can skip this part if you have already set it up. If `git config --global user.name` and `git config --global user.email` return your name and email address, you have already configured this.
 
@@ -27,7 +27,7 @@ git config --global user.email your.name@email.com
 
 :bulb: In some cases, you need an editor when using Git via the CLI, for example, when accepting a merge or rewriting commits. Depending on your operating system, the default choice may be set to notepad, vim, or nano. If you want to use a different editor, you can configure this.
 
-### 1.1.1 Configure the default editor (optional)
+### 1.1.1 - Configure the default editor (optional)
 
 :book: If you do not want to configure the default editor for Git (i.e., you are satisfied with the one you are already using, such as vim or nano), you can skip this step.
 
@@ -37,7 +37,7 @@ git config --global user.email your.name@email.com
 git config --global core.editor "code --wait"
 ```
 
-## 1.2 Create a git repository
+## 1.2 - Create a git repository
 
 :pencil2: Create a new empty directory on your machine that you can call `git-workshop-files` to avoid potential conflict with the name of this repo if you have cloned it. Make sure you are in this directory in your terminal.
 
@@ -48,7 +48,7 @@ You will see the terminal respond:
 Initialized empty Git repository in /[path to directory]/git-workshop-files/.git/
 ```
 
-## 1.3 First git commit
+## 1.3 - First git commit
 
 :pencil2: Add a file called `README.md`. Add appropriate text to the file (e.g., `"Nerdschool git workshop"`).
 
