@@ -57,7 +57,7 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 1. `git add README.md` adds the file to the repo's "staging area," where it is prepared to be committed.
 2. `git commit -m "Initial commit"` commits the file to your local repository. `"Initial commit"` is the message associated with the commit. You can write whatever you want here, but `"Initial commit"` is often a good message to describe a repository's first commit.
 
-:pencil2: Check the commit in the history. To see this in the terminal, you can type
+:pencil2: Check the commit in the history. To see this in the terminal, you can type:
 
 ```
 git log
