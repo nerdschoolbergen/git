@@ -80,7 +80,7 @@ gitGraph
 
 When multiple people work together, you often end up working in the same file and may change the same parts of the code. This happens relatively often when working in larger teams. For Git to know how changes should be consolidated, you need to resolve any conflicts. Now we will create an artificial conflict that we will resolve.
 
-:pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/2.3-endring-1.ts`. Commit the changes in your branch.
+:pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `code/index.ts` with the contents of `code/2.3-endring-1.ts`. Commit the changes in your branch.
 
 :pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `code/index.ts` with the contents of `code/2.3-endring-2.ts`.
 
@@ -90,6 +90,25 @@ When multiple people work together, you often end up working in the same file an
 
 If you have branches that live for a long time without synchronizing with `main`, you risk complex conflicts. If you need to maintain a long-lived branch, always merge in `main` frequently.
 
+:book: Updated diagram - "X" marks the merge conflict: 
+```mermaid
+gitGraph
+   commit id: "Initial commit"
+   branch feature-branch-1
+   checkout feature-branch-1
+   commit id: "Add new file index.ts"
+   checkout main
+   merge feature-branch-1
+   branch feature-branch-3
+   commit id: "Changed file index.ts (version 1)"
+   checkout main
+   branch feature-branch-4
+   commit id: "Changed file index.ts (version 2)"
+   checkout main
+   merge feature-branch-3
+   merge feature-branch-4 type: REVERSE
+```
+
 ---
 
-[:arrow_right: Gå til neste oppgave](../exercise-3/README.md)
+[:arrow_right: Go to the next exercise](../exercise-3/README.md)
