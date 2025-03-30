@@ -88,6 +88,46 @@ When using `git pull --rebase`, your local commits are temporarily set aside, th
 5. Reset the branch with `git reset --hard HEAD~2`
 6. Try `git pull --rebase` instead - notice the linear history
 
+
+```mermaid
+---
+title: Merge on pull
+---
+gitGraph
+   commit id: "..."
+   branch pull-test
+   commit id: "some change"
+   checkout main
+   commit id: "some other change"
+   checkout pull-test
+   merge main type: HIGHLIGHT id: "Merged 'main' into 'pull-test'"
+```
+
+```mermaid
+---
+title: Rebase on pull (before rebase)
+---
+gitGraph
+   commit id: "..."
+   branch pull-test
+   commit id: "some change"
+   checkout main
+   commit id: "some other change"
+```
+
+```mermaid
+---
+title: Rebase on pull (after rebase)
+---
+gitGraph
+   commit id: "..."
+   checkout main
+   commit id: "some other change"
+   branch pull-test
+   commit id: "some change"
+```
+
+
 ---
 
 [:arrow_right: Go to next exercise](../exercise-5/README.md)
