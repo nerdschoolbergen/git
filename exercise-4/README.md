@@ -12,9 +12,9 @@ After this exercise, you will be able to:
 
 We will now put ourselves in a situation similar to before, where we need to merge changes. Instead of using `git merge`, we will use `git rebase`.
 
-:pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-endring-1.ts`. Commit the changes in your branch.
+:pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-change-1.ts`. Commit the changes in your branch.
 
-:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-6`. Replace the contents of `code/index.ts` with the contents of `code/4.1-endring-2.ts`.
+:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-6`. Replace the contents of `code/index.ts` with the contents of `code/4.1-change-2.ts`.
 
 :pencil2: Merge `feature-branch-5` into `main`.
 
