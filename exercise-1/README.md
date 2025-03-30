@@ -39,7 +39,12 @@ git config --global core.editor "code --wait"
 
 ## 1.2 - Create a git repository
 
-:pencil2: Create a new empty directory on your machine that you can call `git-workshop-files` to avoid potential conflict with the name of this repo if you have cloned it. Make sure you are in this directory in your terminal.
+:pencil2: Create a new empty directory on your machine that you can call `git-workshop-files` to avoid potential conflict with the name of this repo if you have cloned it. Make sure you are in this directory in your terminal. 
+
+:bulb: **Tip**: You can create a directory with your terminal, using the `mkdir` command. E.g. `mkdir my-folder` to create a folder called `my-folder`. 
+
+
+:bulb: **Tip**: If you have configured VS Code to be available in your `PATH` variable, you can open VS Code from your terminal by typing `code .` while you are in your directory. 
 
 :pencil2: Initialize a git repository. You do this with the command `git init`.
 You will see the terminal respond:
@@ -74,14 +79,26 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :bulb: You have now created a git repository and made your first commit via the command line. Well done! Now we have all work locally on our own machine, but we would like to check in the code to a central location.
 
+
+
+
 ## 1.4 - Create GitHub Repository
+
+### 1.4.1 - Add SSH key to Github
+:bulb: To securely communicate with GitHub, we need to authenticate ourselves. We are going to add a SSH that the Git CLI client can access. This allows you to push and pull code without entering your password each time.
+
+If you already have an SSH key set, you can skip `1.4.1. If you already have an SSH key, but it is not added to Github, go to the step to add the SSH key. [Docs - Check for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+:pencil2: 
+Go through the documentation steps described [here about creating an SSH key and adding it to your SSH agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+
+### 1.3.2 - Create Github repository
 
 :pencil2: Create a GitHub repository on github.com. If you don't have a GitHub account, you'll need to create one. Go to your profile and select the "Repositories" tab. Here you'll find a large green button labeled "New"
 
 <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
   <img src="../images/nytt-repo.png" alt="Alt Text" width="400" >
 </div>
-
 
 :book: Choose an appropriate name under **`Repository name`** (Suggestion `nerdschool-git-workshop`). Do not select any other settings, and click **`Create repository`**.
 
