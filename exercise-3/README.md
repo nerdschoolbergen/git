@@ -13,7 +13,7 @@ This is an open exercise. The goal is for you to spend time getting familiar wit
 :bulb: When you try to push a branch for the first time to a remote repository, you will get an error message saying it doesn't have an "upstream branch". Here Git tells you what you need to do for your branch to be tracked in the remote repository
 
 ```
-git push --set-upstream origin <branchnavn>
+git push --set-upstream origin <branch name>
 ```
 
 :pencil2: Push branch to remote repository.
@@ -51,4 +51,4 @@ You will see a form for creating a PR. Here you can describe what specific chang
 
 ---
 
-[:arrow_right: Gå til neste oppgave](../oppgave-4/README.md)
+[:arrow_right: Go to the next exercise](../exercise-4/README.md)
