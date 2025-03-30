@@ -1,22 +1,22 @@
-# Oppgave 2 - Brancher og konflikter
+# Exercise 2 - Branches and Conflicts
 
-## :bulb: Mål med Oppgave 2
+## :bulb: Goals for Exercise 2
 
-Etter denne oppgaven skal du kunne å:
+After this exercise, you will be able to:
 
-- Opprette brancher
-- Merge brancher
-- Håndtere konflikter
+- Create branches
+- Merge branches
+- Handle conflicts
 
-## 2.1 - Første branch
+## 2.1 - First Branch
 
-### 2.1.1 - Første commit
+### 2.1.1 - First Commit
 
-Når en arbeider sammen, er det svært vanlig å bruke git branches. Når du lager en branch, bryter du ut i en egen gren fra hoved-branchen, der du kan arbeide fritt uten å påvirke andre sitt arbeid.
+When working together, it's very common to use git branches. When you create a branch, you break out into your own branch from the main branch, where you can work freely without affecting others' work.
 
-:pencil2: Sjekk at du står i `main` branch (`git branch`) og sjekk deretter ut en ny branch med kommandoen `git checkout -b feature-branch-1`. Da vil du sjekke ut en ny branch med navn `feature-branch-1` som går ut fra branchen du sto på, `main`. Nå kan du fritt arbeide i denne branchen (og pushe branchen til et remote repository) og arbeide uforstyrret.
+:pencil2: Check that you are on the `main` branch (`git branch`) and then check out a new branch with the command `git checkout -b feature-branch-1`. This will check out a new branch named `feature-branch-1` that branches from where you were, `main`. Now you can freely work in this branch (and push the branch to a remote repository) and work undisturbed.
 
-:pencil2: Opprett en fil som heter `index.ts` i repositoriet ditt og legg følgende innhold inn i filen. Sjekk filen inn i lokalt repository med en passende commit-melding.
+:pencil2: Create a file named index.ts in your repository and add the following content to the file. Commit the file to your local repository with an appropriate commit message.
 
 ```ts
 export const greeting = (name: string) => {
@@ -24,9 +24,9 @@ export const greeting = (name: string) => {
 };
 ```
 
-### 2.1.2 - Bruk av `git diff`
+### 2.1.2 - Using `git diff`
 
-:pencil2: Erstatt innholdet i `index.ts` med kodesnutten under. Bruk deretter `git diff` for å se hvilke endringer du har utført.
+:pencil2: Replace the contents of index.ts with the code snippet below. Then use git diff to see what changes you have made.
 
 ```ts
 export const greeting = (firstname: string, lastname: string) => {
@@ -34,40 +34,39 @@ export const greeting = (firstname: string, lastname: string) => {
 };
 ```
 
-:bulb: `git diff` er nyttig når du vil se en liten diff. Skal du inspisere en større diff, er det lurt å bruke verkøyet i VS Code eller tilsvarende verktøy i andre editorer/IDEer. Under ser du hvor du finner git-verktøyet i VS Code.
+:bulb: `git diff` is useful when you want to see a small diff. If you need to inspect a larger diff, it's better to use the tool in VS Code or similar tools in other editors/IDEs. Below you can see where to find the git tool in VS Code.
 
 ![git diff i VS code](../images/vscode-gitdiff.png)
 
 ## 2.2 - Merging av brancher
+:bulb: When working together, we typically make changes in a branch and merge to a central branch (`main` or `master`). This way we can separate finished and unfinished code, and can work freely in our own branch until our work is ready to go into the central branch (and further out to production).
 
-:bulb: Når vi arbeider sammen, gjør vi gjerne endringer i en branch og merger til en sentral branch (`main` eller `master`). Slik kan vi skille ferdig og uferdig kode, og kan arbeide fritt i egen branch frem til arbeidet vårt er klart til å gå inn i sentral branch (og videre ut til produksjon).
+:bulb: When you merge a branch, we create a dedicated commit in the git history that describes the changes in the commits you're merging in. This acts as a bridge between the history in the 2 different branches and ensures we get a shared history in the branch we're merging into.
 
-:bulb: Når du merger en branch, oppretter vi en egen commit i git-historikken som beskriver endringene i commitene du merger inn. Dette fungere som en bro mellom historikken i de 2 forskjellige branchene og gjør at vi får en felles historikk i branchen i merger inn i.
-
-:pencil2: Ta inn endringene du gjorde i `feature-branch-1` inn i `main` branch. Kommandoene under viser hvordan du sjekker ut `main` branch, og deretter fletter inn endringene fra din feature-branch.
+:pencil2: Incorporate the changes you made in `feature-branch-1` into the `main` branch. The commands below show how to check out the `main` branch, and then merge in the changes from your feature branch.
 
 ```sh
 git checkout main
 git merge feature-branch-1
 ```
 
-Du vil få opp et editor-vindu (f.eks. Visual Studio Code, Vi, Nano). Dette er i tilfelle du vil beskrive merge-commiten videre.
+An editor window will open (e.g. Visual Studio Code, Vi, Nano). This is in case you want to further describe the merge commit.
 
-:pencil2: Lagre og lukk editor-vinduet for å fullføre merge.
+:pencil2: Save and close the editor window to complete the merge.
 
-## 2.3 - Konflikter
+## 2.3 - Conflicts
 
-Når en er flere som arbeider sammen, ender man ofte opp med å jobbe i samme fil, og kan komme til å endre de samme delene av koden. Dette skjer relativt ofte når en arbeider i større team. For at git skal vite hvordan endringer skal konsolideres, må en løse eventuelle konflikter. Nå skal vi lage en kunstig konflikt, som vi skal løse.
+When multiple people work together, you often end up working in the same file and may change the same parts of the code. This happens relatively often when working in larger teams. For Git to know how changes should be consolidated, you need to resolve any conflicts. Now we will create an artificial conflict that we will resolve.
 
-:pencil2: Sjekk ut en feature-branch, `feature-branch-3`, fra `main` branch. Erstatt innholdet i `index.ts` med innholdet i `code/2.3-endring-1.ts`. Sjekk endringene inn i en commit i branchen din.
+:pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/2.3-endring-1.ts`. Commit the changes in your branch.
 
-:pencil2: Sjekk ut `main` branch, og ut i fra `main` branch, opprett en ny branch, `feature-branch-4`. Erstatt innholdet i `code/index.ts` med innholdet i `code/2.3-endring-2.ts`.
+:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `code/index.ts` with the contents of `code/2.3-endring-2.ts`.
 
-:pencil2: Merge `feature-branch-3` inn i `main` branch. Forsøk deretter å merge `feature-branch-4` inn i `main` branch.
+:pencil2: Merge `feature-branch-3` into the `main` branch. Then try to merge `feature-branch-4` into the `main` branch.
 
-:bulb: Nå har vi merget en branch med konflikter inn i `main`. En god strategi er å holde din feature-branch oppdatert mot `main` og løse konflikter den veien. Da har du anledning til å løse konflikten og påse at innholdet i feature-branchen din fungere som det skal, og slipper konflikter for `main`.
+:bulb: Now we have merged a branch with conflicts into `main`. A good strategy is to keep your feature branch updated against `main` and resolve conflicts that way. This gives you the opportunity to resolve the conflict and ensure that the content in your feature branch works as intended, and avoid conflicts for `main`.
 
-Har du brancher som lever over lang tid, uten at du synkroniserer med `main`, risikerer du komplekse konflikter. Må du holde på en langtlevende branch; merge alltid inn `main` ofte.
+If you have branches that live for a long time without synchronizing with `main`, you risk complex conflicts. If you need to maintain a long-lived branch, always merge in `main` frequently.
 
 ---
 
