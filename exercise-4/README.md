@@ -69,10 +69,39 @@ gitGraph
 :bulb: You generally never want to rebase in main. That would rewrite the history in the shared working branch.
 
 ### 4.2 - Git rebase interactive
+When you're in a feature branch, you might sometimes want to rewrite commits you've checked in, for example by combining commits or changing a commit message. You can do this with `git rebase` in interactive mode.
 
-When you're in a feature branch, you might sometimes want to rewrite commits you've checked in, for example by combining commits or changing the commit message for a commit. You can do this with `git rebase` in interactive mode.
+We'll use interactive rebase to combine commits.
 
-:bulb: When pushing changes after a rebase, you'll need to use `--force` since you've rewritten history. However, using `git push --force-with-lease` is safer than `git push --force`. The `--force-with-lease` flag will check if someone else has pushed changes to the branch since your last fetch. If there are new changes you haven't incorporated, the push will fail, preventing you from accidentally overwriting others' work. This is especially important when working on shared feature branches where multiple developers might be contributing.
+:pencil2: We are going to create some fictive commit messages that we are going to rebase. In this exercise, you choose your own commit messages and content changes. Do the following tasks: 
+- Check out a branch from the `main` branch. Choose your own branch name.
+- Create a file, or make changes to an existing file.
+- Create a commit.
+- Repeat the file change and new commit 3 more times, until you have 4 commits in your branch.
+
+:pencil2: Push your branch to the remote repository.
+
+:pencil2: Use `git rebase` in interactive mode to combine commits. Use the following command:
+
+```
+git rebase -i main
+```
+
+You will now see an editor window with commits that have happened in your branch since you branched out from `main`. In the example below, there are 4 commits in a branch: `commit 1`, `commit 2`, `commit 3`, `commit 4`.
+
+![alt text](image.png)
+
+In the last 3 rows, you can replace the value `pick` with either `s` or `squash`. Squash will combine the commit with the commit above it. As in the case below, `commit 4` will be combined with `commit 3`, which combines with `commit 2`, which combines with `commit 1` (we keep `pick` on `commit 1`).
+
+![alt text](image-1.png)
+
+:pencil2: Save and close the file. You will get a new editor window. Here you can write a new commit message for the combined commits. Remove the content in the file and write an appropriate message. Then save and close the file that appeared.
+
+:pencil2: Try to push the change to the remote repository. You will get a message that the change is not accepted. This is because we have rewritten the history.
+
+:pencil2: Push to branch using the command `git push --force-with-lease`.
+
+:bulb: When you have rewritten the history on a branch that is tracked in a remote repository, you must push changes with a force flag for the change to be accepted. It's tempting to use `git push -f` (or `--force`) which forces the change in. This is OK when working alone. When working in a team, you risk overwriting others' work. It's smart to use the command `git push --force-with-lease` instead, as this forces in the change only if no one else has made any changes since you last pulled the branch.
 
 ### 4.3 - Git pull --rebase
 
