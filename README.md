@@ -1,57 +1,62 @@
-# Introduksjon til versjonskontroll med Git
+# Introduction to Version Control with Git
 
-Git har blitt et viktig verktøy i verktøykassen som utvikler. Verktøyet er nå det mest brukte versjonskontrollsystemet og er viktig å kunne for å være produktiv som utvikler for å spore endringer i filene våre over tid. Dette er viktig for å både kunne utvikle programvare effektivt, men også for å kunne samhandle med andre effektivt.
+Git is an essential tool in a developer's toolbox, widely regarded as the most popular version control system. Understanding how to use Git effectively is crucial for tracking changes in files, improving productivity, and collaborating efficiently with others.
 
-I denne workshop'en skal innom git i kommandolinjen, der vi går igjennom de grunnleggende mekanismene rundt å versjonere filer. Vi ser på de viktigste kommandoene, men også lure tips for ro seg i land når ting går galt. Vi skal bruke Github.com for å arbeide mot et repository utenfor egen maskin, der vi også ser på bruk av Pull Requests. For å merge endringer og løse konflikter, bruker vi Visual Studio Code.
+In this workshop, we will cover Git in the command line, going through the basic mechanisms of versioning files. We will look at the most important commands, as well as useful tips for getting out of trouble when things go wrong. We will use Github.com to work with a repository outside of our local machine, where we will also explore the use of Pull Requests. To merge changes and resolve conflicts, we will use Visual Studio Code.
 
-## Oppsett på egen maskin
+[Open presentation slides](#)
+
+## Prerequisites
 
 ### Git
 
-Sørg for at Git er installert på maskinen din og er tilgjengelig fra kommandolinje/terminal.
-Om du alt har git installert, kan du hoppe over dette steget. I Windows, sjekk om du har `git bash` installert. Er du på Mac OS eller Linux, kan du sjekke om git er tilgjengelig med å skrive `git version`.
+Ensure that Git is installed on your machine and accessible from the command line/terminal.  
+If you already have Git installed, you can skip this step. On Windows, check if you have `git bash` installed. If you are on macOS or Linux, you can check if Git is available by typing `git version`.
 
-Har du ikke git installert, finner du oppskrift for å installere på alle operativsystemer her: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+If Git is not installed, you can find instructions for installing it on all operating systems here: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ### Editor
 
-Det er fritt frem for å bruke den kode-editoren du selv foretrekker, men vi varmt anbefale Visual Studio Code.
+You are free to use the code editor of your choice, but we highly recommend Visual Studio Code.
 
-## Kom igang
+## How to get started
 
-- Selv om du har denne filen (`README.md`) på egen maskin om du har klonet ned repoet, er det enklere å lese på Github med tanke på formattering. Vi anbefaler derfor at du bruker nettleser til å lese oppgavene.
-- Start på oppgave 1, og spør gjerne om det er noe som er uklart eller noe du ønsker å diskutere.
+- Even though you have this file (`README.md`) on your local machine if you have cloned the repository, it is easier to read on GitHub due to formatting. We therefore recommend using a browser to read the exercises.
+- Start with Exercise 1, and feel free to ask if anything is unclear or if there is something you would like to discuss.
 
-:exclamation: Vi skal ikke bruke GUI-klienten i dette workshopen. Her skal vi bruke terminal/CLI. Det er lurt å unngå klipp-og-lim for å bli vandt til å skrive git-kommandoer, selv om det kan oppleves som tungvindt i starten. Etterhvert som en får det inn i fingrene, blir bruk av CLI-verktøyet en effektiv måte å jobbe på.
+:exclamation: We will not use the GUI client in this workshop. Instead, we will use the terminal/command line (CLI). It is a good idea to avoid copy-pasting commands to get used to typing Git commands, even though it may feel inconvenient at first. Once you get the hang of it, using the CLI tool becomes an efficient way to work.
 
-## Øvelser
+## Exercises
 
-Dette repositoriet har et sett med øvelser organisert i kataloger. Hver katalog inneholder en `README.md` som beskriver oppgaven.
+This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise:
 
-- [Oppgave 1](oppgave-1/README.md)
-- [Oppgave 2](oppgave-2/README.md)
-- [Oppgave 3](oppgave-3/README.md)
-- [Oppgave 4](oppgave-4/README.md)
-- [Oppgave 5](oppgave-5/README.md)
+- [Exercise 1](oppgave-1/README.md)
+- [Exercise 2](oppgave-2/README.md)
+- [Exercise 3](oppgave-3/README.md)
+- [Exercise 4](oppgave-4/README.md)
+- [Exercise 5](oppgave-5/README.md)
 
-### Symboler og ikoner du finner igjen i oppgavene
+### Symbols and notation used in the exercises
 
-#### Ikoner med spesiell betydning
+#### Icons with special meaning
 
-- :pencil2: En oppgave du skal utføre
-- :bulb: Ekstra informasjon eller tips. Her trenger du ikke å utføre noe, men ta med deg informasjon videre.
-- :poop: Dårlig praksis, gjerne en uheldig måte å løse et problem på.
-- :star: En bonusoppgave
+:pencil2: - A task you should do  
+:book: - A section of text to read (no tasks, just information).  
+:bulb: - Additional information.  
+:exclamation: - Something important.  
+:question: - Open-ended question for the reader ("What do you think would happen if...")  
+:poop: - Bad practice (don't-do-this)  
+:star: - A bonus task (not required)  
 
-#### Tastatursnarveier
+#### Keyboard keys
 
-Tips om snarveier du kan ta ved å bruke tastaturkombinasjoner ser slik ut:
+Will look like this:
 
 <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
 
 #### Diff blocks
 
-En diff-block vil vise om det er tekst som skal legges til eller fjernes (`-` fjernes, `+` legges til)
+Emphasizes how lines of text should change.
 
 ```diff
 - this text was removed
