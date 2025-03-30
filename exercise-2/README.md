@@ -45,7 +45,17 @@ export const greeting = (firstname: string, lastname: string) => {
 
 :bulb: `git diff` is useful when you want to see a small diff. If you need to inspect a larger diff, it's better to use the tool in VS Code or similar tools in other editors/IDEs. Below you can see where to find the git tool in VS Code.
 
-![git diff i VS code](../images/vscode-gitdiff.png)
+
+You can find the `diff` tool in VS Code under the Source Control tab on your left hand side. 
+
+![alt text](../images/2-vscode-git-icon.png)
+
+:bulb: Your diff should look something like this 
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/2-vscode-diff.png">
+</div>
+
 
 ## 2.2 - Merging branches
 
@@ -84,11 +94,10 @@ When multiple people work together, you often end up working in the same file an
 
 :pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `code/index.ts` with the contents of `code/2.3-change-2.ts`.
 
+
 :pencil2: Merge `feature-branch-3` into the `main` branch. Then try to merge `feature-branch-4` into the `main` branch.
 
-:bulb: Now we have merged a branch with conflicts into `main`. A good strategy is to keep your feature branch updated against `main` and resolve conflicts that way. This gives you the opportunity to resolve the conflict and ensure that the content in your feature branch works as intended, and avoid conflicts for `main`.
-
-If you have branches that live for a long time without synchronizing with `main`, you risk complex conflicts. If you need to maintain a long-lived branch, always merge in `main` frequently.
+:bulb: We now have two feature branches with changes that should cause a conflict when we attempt to merge them both. Your git state should look something like this:
 
 :book: Updated diagram - "X" marks the merge conflict: 
 ```mermaid
@@ -105,10 +114,58 @@ gitGraph
    branch feature-branch-4
    commit id: "Changed file index.ts (version 2)"
    checkout main
-   merge feature-branch-3
-   merge feature-branch-4 type: REVERSE
+   merge feature-branch-3 id: "Merge feature-branch-3"
+   merge feature-branch-4 type: REVERSE id: "CONFLICT"
 ```
 
+You should be notified in the CLI that your merge contains a conflict. Open the VS Code merge tool, by finding the file under the "Merge Changes" list under the Source Control tab in VS Code. Press **"Resolve in Merge Editor"** as shown below. 
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/2-ready-for-conflict-resolvement.png" alt="Alt Text" width="800">
+</div>
+
+
+:bulb: You will see 3 windows. A window on the left titled `Incoming` shows the changes from the branch being merged into `main`. You have a window called `Current` which shows the content in main. Finally, you have a `Result` window at the bottom that shows what the final merge will look like.
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/2-conflict-merge.png" alt="Alt Text" width="800">
+</div>
+
+:pencil2: Select `Accept Incoming` in the `Incoming` window to choose which side to keep. Then click `Complete Merge`.
+
+:pencil2: To complete the merge, go to your terminal to stage the merged file with `git add index.ts`. Then complete the merge with the command `git merge --continue`. You will get an editor window where you can describe the merge commit in more detail. Close this window to accept the merge commit.
+
+:pencil2: Check `git log`. You should now have a merge commit in your log.
+
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+  <img src="../images/2-git-log-merge-commit.png" alt="Alt Text" width="500">
+</div>
+
+
+:bulb: Now we have merged a branch with conflicts into `main`. A good strategy is to keep your feature branch updated against `main` and resolve conflicts that way. This gives you the opportunity to resolve the conflict and ensure that the content in your feature branch works as intended, and avoid conflicts for `main`.
+
+If you have branches that live for a long time without synchronizing with `main`, you risk complex conflicts. If you need to maintain a long-lived branch, always merge in `main` frequently.
+
+:bulb: Looking at your `main` branch, this graph should now represent your git history, with two merge commits from `feature-branch-3` and `feature-branch-4`.
+
+:book: Updated diagram - "X" marks the merge conflict: 
+```mermaid
+gitGraph
+   commit id: "Initial commit"
+   branch feature-branch-1
+   checkout feature-branch-1
+   commit id: "Add new file index.ts"
+   checkout main
+   merge feature-branch-1
+   branch feature-branch-3
+   commit id: "Changed file index.ts (version 1)"
+   checkout main
+   branch feature-branch-4
+   commit id: "Changed file index.ts (version 2)"
+   checkout main
+   merge feature-branch-3 id: "Merge feature-branch-3"
+   merge feature-branch-4 id: "Merge feature-branch-4"
+```
 ---
 
 [:arrow_right: Go to the next exercise](../exercise-3/README.md)
