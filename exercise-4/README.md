@@ -48,4 +48,4 @@ When using `git pull --rebase`, your local commits are temporarily set aside, th
 
 ---
 
-[:arrow_right: Go to next exercise](../oppgave-5/README.md)
+[:arrow_right: Go to next exercise](../exercise-5/README.md)

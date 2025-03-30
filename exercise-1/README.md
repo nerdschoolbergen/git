@@ -91,4 +91,4 @@ git log
 
 ---
 
-[:arrow_right: Go to the next exercise](../oppgave-2/README.md)
+[:arrow_right: Go to the next exercise](../exercise-2/README.md)

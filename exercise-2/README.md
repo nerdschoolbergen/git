@@ -70,4 +70,4 @@ If you have branches that live for a long time without synchronizing with `main`
 
 ---
 
-[:arrow_right: Gå til neste oppgave](../oppgave-3/README.md)
+[:arrow_right: Gå til neste oppgave](../exercise-3/README.md)

@@ -17,4 +17,4 @@ Familiarize yourself with how you can write comments, and perform approval/rejec
 
 ---
 
-[:arrow_right: Go to next exercise](../oppgave-4/README.md)
+[:arrow_right: Go to next exercise](../exercise-4/README.md)

@@ -30,11 +30,11 @@ You are free to use the code editor of your choice, but we highly recommend [Vis
 
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise:
 
-- [Exercise 1](oppgave-1/README.md)
-- [Exercise 2](oppgave-2/README.md)
-- [Exercise 3](oppgave-3/README.md)
-- [Exercise 4](oppgave-4/README.md)
-- [Exercise 5](oppgave-5/README.md)
+- [Exercise 1](exercise-1/README.md)
+- [Exercise 2](exercise-2/README.md)
+- [Exercise 3](exercise-3/README.md)
+- [Exercise 4](exercise-4/README.md)
+- [Exercise 5](exercise-5/README.md)
 
 ### Symbols and notation used in the exercises
 
