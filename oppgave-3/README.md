@@ -1,20 +1,20 @@
-# Oppave 3 - Bruk av Github
+# Exercise 3 - Using Github
 
-## :bulb: Mål med Oppgave 3
+## :bulb: Goals for Exercise 3
 
-Når en arbeider på systemer som må fungere til enhver tid, er pull requests og code reviews et viktig verktøy. Ved å lage en pull request, får en å beskrive endringer, og dine kollegaer kan være med å diskutere og komme med forbedringsforslag. I tillegg fungerer det som en god mekanisme for dokumentasjon for hvorfor en endring er utført.
+When working on systems that need to be operational at all times, pull requests and code reviews are important tools. By creating a pull request, you get to describe changes, and your colleagues can participate in discussions and suggest improvements. Additionally, it serves as a good documentation mechanism for why a change was made.
 
-Dette er en fri oppgave. Målet er at du bruker tid til å bli kjent med hvordan en oppretter pull requests, skriver kommentarer og foretar en pull request review.
+This is an open exercise. The goal is for you to spend time getting familiar with how to create pull requests, write comments, and perform a pull request review.
 
-### 3.1 Opprette pull request
+### 3.1 Creating a Pull Request
 
-:pencil2: Sjekk ut en ny branch med passende navn. Opprett en ny fil med noe innhold, og sjekk denne inn med en commit i branchen. Push branchen til remote repository.
+:pencil2: Check out a new branch with an appropriate name. Create a new file with some content, and commit it to the branch. Push the branch to the remote repository.
 
-:pencil2: Opprett en pull request i github.
-Gjør deg kjent med hvordan du kan skrive kommentarer, og kjøre godkjenning/avvisning av pull request.
+:pencil2: Create a pull request in Github.
+Familiarize yourself with how you can write comments, and perform approval/rejection of pull requests.
 
-:pencil2: Merge pull request inn i `main`.
+:pencil2: Merge the pull request into `main`.
 
 ---
 
-[:arrow_right: Gå til neste oppgave](../oppgave-4/README.md)
+[:arrow_right: Go to next exercise](../oppgave-4/README.md)
