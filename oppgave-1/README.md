@@ -1,94 +1,94 @@
-# Oppgave 1 - Vanlige kommandoer
+# Exercise 1 - Common Commands
 
-## :bulb: Mål med Oppgave 1
+## :bulb: Goal of Exercise 1
 
-Etter denne oppgaven skal du kunne å:
+After completing this exercise, you should be able to:
 
-- Konfigurere git på egen maskin
-- Lære noen av de mest brukte kommandoene i CLIen:
-  - `git init` (Initialisere git-repository som spores både lokalt og på Github)
-  - `git add` (Legge til filer i staging-området)
-  - `git commit` (Commit'e filer til i lokalt repository)
-  - `git push` (Push'e filer til remote repository)
-  - `git pull` (Hente filer fra remote repository)
+- Configure Git on your own machine
+- Learn some of the most commonly used Git commands in the CLI:
+  - `git init` (Initialize a Git repository tracked both locally and on GitHub)
+  - `git add` (Add files to the staging area)
+  - `git commit` (Commit files to the local repository)
+  - `git push` (Push files to the remote repository)
+  - `git pull` (Fetch files from the remote repository)
 
-## Oppsett av git-config
+## 1.1 Configuring Git
 
-:bulb: I denne seksjonen skal vi sette opp konfigurasjon som beskriver "hvem du er" i git. Du kan hoppe over denne delen om dette er alt noe du har satt opp. Om `git config --global user.name` og `git config --global user.email` returnerer ditt navn og epost-adresse, har du alt satt dette opp.
+:bulb: In this section, we will set up a configuration that describes "who you are" in Git. You can skip this part if you have already set it up. If `git config --global user.name` and `git config --global user.email` return your name and email address, you have already configured this.
 
-:pencil2: Konfigurer navn og epost i git-konfigurasjonen din
+:pencil2: Configure your name and email in the Git configuration:
 
+```shell
+git config --global user.name "Your Name"
+git config --global user.email your.name@email.com
 ```
-git config --global user.name "Ditt Navn"
-git config --global user.email ditt.navn@epost.no
-```
 
-Erstatt `Ditt Navn` og `ditt.navn@epost.no` med ditt eget navn og epostadresse.
+:book: Replace `Your Name` and `your.name@email.com` with your own name and email address.
 
-:bulb: I enkelte tilfeller trenger du en editor når du bruker Git via CLI, eksempelvis når du skal godta en merge eller skrive om commits. Avhengig av hvilket operativsystem du bruker, kan standardvalget være satt til notepad, vim eller nano. Ønsker du å bruke en annen editor, kan du konfigurere dette.
+:bulb: In some cases, you need an editor when using Git via the CLI, for example, when accepting a merge or rewriting commits. Depending on your operating system, the default choice may be set to notepad, vim, or nano. If you want to use a different editor, you can configure this.
 
-:pencil2: Konfigurer standard editor (valgfritt)
+### 1.1.1 Configure the default editor (optional)
 
-Om du ikke vil konfigurere standard editor for git (dvs. du er fornøyd med den du alt bruker, f.eks. vim eller nano), kan du hoppe over dette steget.
+:book: If you do not want to configure the default editor for Git (i.e., you are satisfied with the one you are already using, such as vim or nano), you can skip this step.
 
-For å konfigurere Git til å bruke Visual Studio Code som standard editor, kan du føre inn følgende kommando i terminalen din:
+:pencil2: To configure Git to use Visual Studio Code as the default editor, you can enter the following command in your terminal:
 
-```
+```shell
 git config --global core.editor "code --wait"
 ```
 
-## Opprett git repository
+## 1.2 Create a git repository
 
-:pencil2: Opprett en ny tom katalog på maskinen din som du kan kalle `git-workshop-files` for å unngå potensiell konflikt med navnet på dette repoet om du har klonet det ned. Sørg for at du står i denne katalogen i terminalen din.
+:pencil2: Create a new empty directory on your machine that you can call `git-workshop-files` to avoid potential conflict with the name of this repo if you have cloned it. Make sure you are in this directory in your terminal.
 
-:pencil2: Initialiser et git repository. Dette gjør du med kommandoen `git init`.
-Du vil se terminalen svare tilbake:
+:pencil2: Initialize a git repository. You do this with the command `git init`.
+You will see the terminal respond:
 
 ```
-Initialized empty Git repository in /[sti til katalog]/git-workshop-files/.git/
+Initialized empty Git repository in /[path to directory]/git-workshop-files/.git/
 ```
 
-## Første git commit
+## 1.3 First git commit
 
-:pencil2: Legg til en fil som heter `README.md`. Legg en passende tekst i filen (f.eks. `"Techschool git workshop"`).
+:pencil2: Add a file called `README.md`. Add appropriate text to the file (e.g., `"Nerdschool git workshop"`).
 
-:pencil2: Sjekk inn filen i ditt lokale repository. Dette gjør du i to steg:
+:pencil2: Check in the file to your local repository. You do this in two steps:
 
-1. `git add README.md` legger til filen i repoets "staging-område", der det gjøres klart til å commites.
-2. `git commit -m "Initial commit"` commiter filen til ditt lokale repository. `"Initial commit"` er meldingen som er tilknyttet commit'en. Du kan skrive hva du vil her, men `"Intial commit"` er ofte en god melding for å beskrive et repository sin første commit.
+1. `git add README.md` adds the file to the repo's "staging area," where it is prepared to be committed.
+2. `git commit -m "Initial commit"` commits the file to your local repository. `"Initial commit"` is the message associated with the commit. You can write whatever you want here, but `"Initial commit"` is often a good message to describe a repository's first commit.
 
-:pencil2: Sjekk commit'en i historikken. For å se dette i terminalen kan du skrive
+:pencil2: Check the commit in the history. To see this in the terminal, you can type
 
 ```
 git log
 ```
 
-:bulb: Du har nå opprettet et git-repository og lagt inn første commit via kommandolinjen. Bra jobba! Nå har vi alt arbeid lokalt på egen maskin, men vi ønsker gjerne å sjekke inn koden et sentralt sted.
+:bulb: You have now created a git repository and made the first commit via the command line. Good job! Now we have all the work locally on our own machine, but we would like to check in the code to a central place.
 
-:pencil2: Opprett et Github-repository på github.com. Har du ikke en github-konto, må du opprette dette. Gå inn på din profil og velg fane "Repositories". Her vil du finne en stor grønn knapp med tittel "New"
+:pencil2: Create a GitHub repository on github.com. If you do not have a GitHub account, you need to create one. Go to your profile and select the "Repositories" tab. Here you will find a large green button titled "New"
 
 <div style="text-align: center">
   <img src="../images/nytt-repo.png" alt="Alt Text" width="400" >
 </div>
 
 
-Velg et passende navn under **`Repository name`** (Forslag `techschool-git-workshop`). Ikke velg noen andre innstillinger, og trykk **`Create repository`**.
+:book: Choose an appropriate name under **`Repository name`** (Suggestion `nerdschool-git-workshop`). Do not select any other settings, and click **`Create repository`**.
 
-Du vil komme til følgende skjermbilde, om du må de nederste instruksene (**`push an existing repository from the command line`**)
+:book: You will come to the following screen, where you need the bottom instructions (**`push an existing repository from the command line`**)
 
 <div style="text-align: center">
   <img src="../images/opprettet-repo.png" alt="Alt Text" width="600">
 </div>
 
 
-Etter du har utført instruksene i Github, vil ha:
+:book: After you have followed the instructions on GitHub, you will have:
 
-- Satt opp ditt lokale repository til å spore et "remote repository" / "remote origin".
-- Git branchen din navnet `main` (Om du sto på branch `master` blir denne nå `main`).
-- Pushet endringene dine til remote origin
+- Set up your local repository to track a "remote repository" / "remote origin".
+- Renamed your Git branch to `main` (If you were on the `master` branch, it is now `main`).
+- Pushed your changes to the remote origin
 
-:pencil2: For å simulere en endring utenfor egen maskin, trykk på blyant-ikonet på github.com, og endre en fil. I terminalen din, skriv `git pull` for å hente ned siste endringer.
+:pencil2: To simulate a change outside your own machine, click the pencil icon on github.com and change a file. In your terminal, type `git pull` to fetch the latest changes.
 
 ---
 
-[:arrow_right: Gå til neste oppgave](../oppgave-2/README.md)
+[:arrow_right: Go to the next exercise](../oppgave-2/README.md)
