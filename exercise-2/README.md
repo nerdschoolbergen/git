@@ -99,7 +99,6 @@ When multiple people work together, you often end up working in the same file an
 
 :bulb: We now have two feature branches with changes that should cause a conflict when we attempt to merge them both. Your git state should look something like this:
 
-:book: Updated diagram - "X" marks the merge conflict: 
 ```mermaid
 gitGraph
    commit id: "Initial commit"
@@ -148,7 +147,6 @@ If you have branches that live for a long time without synchronizing with `main`
 
 :bulb: Looking at your `main` branch, this graph should now represent your git history, with two merge commits from `feature-branch-3` and `feature-branch-4`.
 
-:book: Updated diagram - "X" marks the merge conflict: 
 ```mermaid
 gitGraph
    commit id: "Initial commit"
