@@ -121,12 +121,13 @@ When using `git pull --rebase`, your local commits are temporarily set aside, th
 
 :pencil2:  Let's simulate this difference:
 1. Create a new branch called `pull-test` from main
-2. Make a change and commit it
-3. Go back to main and make a different change and commit it
-4. Go to `pull-test` and try `git pull` to merge main's changes - notice the merge commit
-5. Reset the branch with `git reset --hard HEAD~2`
-6. Try `git pull --rebase` instead - notice the linear history
+2. Make a change and commit it. Push it to github.com, and merge it to `main` using a pull request.
+3. Go back to `main` branch and make a different change and commit it straight to the `main` branch.
+4. In the main `branch`, use `git pull` to pull changes in `main` - notice the merge commit (unless you got a fast-forward merge). 
+5. Reset the branch with `git reset --hard HEAD~1`.
+6. Try `git pull --rebase` instead - notice the linear history and that your commit that you added straight to `main` is now placed after your merged PR. 
 
+:bulb: Careful with `--hard` flag in the future. Dont use this uncritically. This is a massive foot-gun
 
 ```mermaid
 ---
