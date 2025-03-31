@@ -87,7 +87,7 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 ### 1.4.1 - Add SSH key to Github
 :bulb: To securely communicate with GitHub, we need to authenticate ourselves. We are going to add a SSH that the Git CLI client can access. This allows you to push and pull code without entering your password each time.
 
-If you already have an SSH key set, you can skip `1.4.1. If you already have an SSH key, but it is not added to Github, go to the step to add the SSH key. [Docs - Check for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+If you already have an SSH key set, you can skip `1.4.1`. If you already have an SSH key, but it is not added to Github, go to the step to add the SSH key. [Docs - Check for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 
 :pencil2: 
 Go through the documentation steps described [here about creating an SSH key and adding it to your SSH agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
