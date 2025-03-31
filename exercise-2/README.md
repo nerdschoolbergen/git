@@ -19,6 +19,10 @@ When working together, it's very common to use git branches. When you create a b
 :pencil2: Create a file named `index.ts` in your repository and add the following content to the file. Commit the file to your local repository with an appropriate commit message.
 
 ```ts
+/**
+ * Function that greets a person
+ * @param name Name of person
+ */
 export const greeting = (name: string) => {
   console.log(`Hello ${name}`);
 };
@@ -35,9 +39,14 @@ gitGraph
 
 ### 2.1.2 - Using `git diff`
 
-:pencil2: Replace the contents of index.ts with the code snippet below. Then use git diff to see what changes you have made.
+:pencil2: Replace the contents of index.ts with the code snippet below. Then use `git diff` in your terminal to see what changes you have made.
 
 ```ts
+/**
+ * Function that greets a person
+ * @param firstname First name
+ * @param lastname Last name
+ */
 export const greeting = (firstname: string, lastname: string) => {
   console.log(`Hello ${firstname} ${lastname}`);
 };
