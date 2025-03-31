@@ -46,7 +46,7 @@ git config --global core.editor "code --wait"
 
 :bulb: **Tip**: If you have configured VS Code to be available in your `PATH` variable, you can open VS Code from your terminal by typing `code .` while you are in your directory. 
 
-:pencil2: Initialize a git repository. You do this with the command `git init`.
+:pencil2: Make sure you are in your newly created folder in your terminal. Initialize a git repository. You do this with the command `git init`. 
 You will see the terminal respond:
 
 ```
@@ -71,7 +71,7 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :pencil2: Create a commit that includes the file you created using the command `git commit -m <message>`. Write an appropriate commit message (`"Initial commit"` is often a suitable message for the first commit in a repository).
 
-:pencil2: Check that you have a commit in your commit log by using the command `git log`.
+:pencil2: Check that you have a commit in your commit log by using the command `git log`. To exit `git log`, press `q`. 
 
 <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
   <img src="../images/1-git-log-initial-commit.png" alt="Alt Text" width="500">
@@ -92,7 +92,7 @@ If you already have an SSH key set, you can skip `1.4.1. If you already have an 
 :pencil2: 
 Go through the documentation steps described [here about creating an SSH key and adding it to your SSH agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
-### 1.3.2 - Create Github repository
+### 1.4.2 - Create Github repository
 
 :pencil2: Create a GitHub repository on github.com. If you don't have a GitHub account, you'll need to create one. Go to your profile and select the "Repositories" tab. Here you'll find a large green button labeled "New"
 
@@ -102,7 +102,7 @@ Go through the documentation steps described [here about creating an SSH key and
 
 :book: Choose an appropriate name under **`Repository name`** (Suggestion `nerdschool-git-workshop`). Do not select any other settings, and click **`Create repository`**.
 
-:book: You will come to the following screen, where you need the bottom instructions (**`push an existing repository from the command line`**)
+:pencil2: You will come to the following screen. Follow bottom instructions (**`push an existing repository from the command line`**)
 
 <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
   <img src="../images/opprettet-repo.png" alt="Alt Text" width="600">
