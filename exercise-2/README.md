@@ -101,9 +101,9 @@ gitGraph
 
 When multiple people work together, you often end up working in the same file and may change the same parts of the code. This happens relatively often when working in larger teams. For Git to know how changes should be consolidated, you need to resolve any conflicts. Now we will create an artificial conflict that we will resolve.
 
-:pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `code/index.ts` with the contents of `code/2.3-change-1.ts`. Commit the changes in your branch.
+:pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/2.3-change-1.ts` from this repository. Commit the changes in your branch.
 
-:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `code/index.ts` with the contents of `code/2.3-change-2.ts`.
+:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `index.ts` with the contents of `code/2.3-change-2.ts` from this repository. 
 
 
 :pencil2: Merge `feature-branch-3` into the `main` branch. Then try to merge `feature-branch-4` into the `main` branch.
