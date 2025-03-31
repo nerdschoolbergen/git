@@ -175,6 +175,10 @@ gitGraph
    merge feature-branch-3 id: "Merge feature-branch-3"
    merge feature-branch-4 id: "Merge feature-branch-4"
 ```
+
+:pencil2: Push the changes from your `main` branch to the remote repository using `git push`.
 ---
+
+
 
 [:arrow_right: Go to the next exercise](../exercise-3/README.md)
