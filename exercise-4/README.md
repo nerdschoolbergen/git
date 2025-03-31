@@ -14,7 +14,7 @@ We will now put ourselves in a situation similar to before, where we need to mer
 
 :pencil2: Checkout the `main` branch. Pull the latest changes from your pull request that was merged into `main` using `git pull`.
 
-:pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-change-1.ts`. Commit the changes in your branch.
+:pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-change-1.ts` from this repository. Commit the changes in your branch.
 
 ```mermaid
 gitGraph
@@ -23,7 +23,7 @@ gitGraph
    commit id: "Updated index.ts"
 ```
 
-:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-6`. Replace the contents of `code/index.ts` with the contents of `code/4.1-change-2.ts`.
+:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-6`. Replace the contents of `code/index.ts` with the contents of `code/4.1-change-2.ts` from this repository.
 
 ```mermaid
 gitGraph
@@ -67,6 +67,14 @@ gitGraph
    branch feature-branch-6
    commit id: "Updated index.ts (change 2)"
 ```
+
+:pencil2: Use the Merge Editor in VS Code, and resolve your conflict, just like you did in the previous exercise with normal merging
+
+:pencil2: After resolving the config, add the file to the staging area using `git add .`
+
+:pencil2: Continue rebasing by using the command `git rebase --continue` in your terminal
+
+:pencil2: After you have finished rebasing `main` into your branch, checkout the `main` branch and merge `feature-branch-6` in. Since we have rebase `main` into our branch, we have rewritten the history in the branch so that it seems our work always was "on top of" the work in main, and we can easily merge our work. 
 
 :bulb: You generally never want to rebase in main. That would rewrite the history in the shared working branch.
 
