@@ -66,6 +66,8 @@ You can find the `diff` tool in VS Code under the Source Control tab on your lef
 </div>
 
 
+:pencil2: Commit the changes to `index.ts`. Use an appropriate commit message of your choosing. 
+
 ## 2.2 - Merging branches
 
 :bulb: When working together, we typically make changes in a branch and merge to a central branch (`main` or `master`). This way we can separate finished and unfinished code, and can work freely in our own branch until our work is ready to go into the central branch (and further out to production).
