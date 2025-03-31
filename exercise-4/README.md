@@ -12,6 +12,8 @@ After this exercise, you will be able to:
 
 We will now put ourselves in a situation similar to before, where we need to merge changes. Instead of using `git merge`, we will use `git rebase`.
 
+:pencil2: Checkout the `main` branch. Pull the latest changes from your pull request that was merged into `main` using `git pull`.
+
 :pencil2: Check out a feature branch, `feature-branch-5`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/4.1-change-1.ts`. Commit the changes in your branch.
 
 ```mermaid
