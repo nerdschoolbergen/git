@@ -1,32 +1,43 @@
-# Git
-Git has won the source control battle for now, and it is a vital tool to learn for any developer today. Learn the basic commands and workflow in this lesson.
+# Introduction to Version Control with Git
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1LXSodXy5pWkS61L4C770QnVVccXAw9_-/edit#slide=id.p1)
+Git is an essential tool in a developer's toolbox, widely regarded as the most popular version control system. Understanding how to use Git effectively is crucial for tracking changes in files, improving productivity, and collaborating efficiently with others.
 
-## What you need
+In this workshop, we will cover Git in the command line, going through the basic mechanisms of versioning files. We will look at the most important commands, as well as useful tips for getting out of trouble when things go wrong. We will use Github.com to work with a repository outside of our local machine, where we will also explore the use of Pull Requests. To merge changes and resolve conflicts, we will use Visual Studio Code.
 
-* Make sure Git is installed and is available from the command line (`` git --version`` should not produce an error). [Install Git](https://git-scm.com/downloads) if you do not already have it. 
+[Open presentation slides](#)
+[](https://docs.google.com/presentation/d/1_juFNTuMCmIKJeagh40UMaucgW99NAkaCTMLk6tfQJU/edit?usp=sharing)
 
-* A good text editor of your choice, such as [Atom](https://atom.io/), [SublimeText](https://www.sublimetext.com/), or [Visual Studio Code](https://www.visualstudio.com/).
+## Prerequisites
+
+### Git
+
+Ensure that Git is installed on your machine and accessible from the command line/terminal.  
+If you already have Git installed, you can skip this step. On Windows, check if you have `git bash` installed. If you are on macOS or Linux, you can check if Git is available by typing `git version`.
+
+If Git is not installed, you can find instructions for installing it on all operating systems here: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+### Editor
+
+You are free to use the code editor of your choice, but we highly recommend [Visual Studio Code](https://code.visualstudio.com/).
 
 ## How to get started
 
-* Although you have this `README.md` file on your computer, it's easier to read it on GitHub with formatting. We therefore recommend you keep a web browser tab open with the exercise tasks.
-* Start by opening [exercise 1](./exercises/exercise-1.md/).
-* Remember to ask an instructor if you're stuck.
+- Even though you have this file (`README.md`) on your local machine if you have cloned the repository, it is easier to read on GitHub due to formatting. We therefore recommend using a browser to read the exercises.
+- Start with Exercise 1, and feel free to ask if anything is unclear or if there is something you would like to discuss.
 
-:exclamation: Do not use a GUI client. Use the terminal/CLI only. You should not copy and paste content. Type it out manually. Remember to follow all the steps in the tutorial.
+:exclamation: We will not use the GUI client in this workshop. Instead, we will use the terminal/command line (CLI). It is a good idea to avoid copy-pasting commands to get used to typing Git commands, even though it may feel inconvenient at first. Once you get the hang of it, using the CLI tool becomes an efficient way to work.
 
 ## Exercises
 
-This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
+This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise:
 
-- [Exercise 1](exercises/exercise-1.md)
-- [Exercise 2](exercises/exercise-2.md)
-- [Exercise 3](exercises/exercise-3.md)
-- [Bonus exercise](exercises/exercise-4-bonus.md)
+- [Exercise 1](exercise-1/README.md)
+- [Exercise 2](exercise-2/README.md)
+- [Exercise 3](exercise-3/README.md)
+- [Exercise 4](exercise-4/README.md)
+- [Exercise 5](exercise-5/README.md)
 
-### Symbols and notation used in exercises
+### Symbols and notation used in the exercises
 
 #### Icons with special meaning
 
@@ -52,4 +63,3 @@ Emphasizes how lines of text should change.
 - this text was removed
 + and replaced with this text
 ```
-
