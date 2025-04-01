@@ -4,8 +4,7 @@ Git is an essential tool in a developer's toolbox, widely regarded as the most p
 
 In this workshop, we will cover Git in the command line, going through the basic mechanisms of versioning files. We will look at the most important commands, as well as useful tips for getting out of trouble when things go wrong. We will use Github.com to work with a repository outside of our local machine, where we will also explore the use of Pull Requests. To merge changes and resolve conflicts, we will use Visual Studio Code.
 
-[Open presentation slides](#)
-[](https://docs.google.com/presentation/d/1_juFNTuMCmIKJeagh40UMaucgW99NAkaCTMLk6tfQJU/edit?usp=sharing)
+[Open presentation slides](https://docs.google.com/presentation/d/1_juFNTuMCmIKJeagh40UMaucgW99NAkaCTMLk6tfQJU/edit?usp=sharing)
 
 ## Prerequisites
 
