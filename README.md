@@ -23,6 +23,17 @@ You are free to use the code editor of your choice, but we highly recommend [Vis
 
 You will need an account on [github.com](https://github.com/). If you don't have one, create it before the workshop starts - it only takes a minute, but it is one less thing to do while everyone else is working.
 
+### GitHub CLI
+
+We use the [GitHub CLI](https://cli.github.com/) (`gh`) to authenticate Git against GitHub over HTTPS, so that pushing and pulling works without setting up SSH keys. Installing it ahead of time is a good idea:
+
+```shell
+winget install --id GitHub.cli    # Windows
+brew install gh                   # macOS
+```
+
+On Linux, see the [installation instructions for your distribution](https://github.com/cli/cli/blob/trunk/docs/install_linux.md). Exercise 1 walks through logging in, and covers what to do if you would rather not install it.
+
 ## How to get started
 
 - Clone this repository. Exercises 2 and 4 ask you to copy code from the `code/` folder, so you will want it on your machine:
