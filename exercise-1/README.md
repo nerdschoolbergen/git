@@ -88,6 +88,37 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :bulb: To securely communicate with GitHub, we need to authenticate ourselves. In this workshop we use **HTTPS**, which is the address GitHub shows you by default and needs no key setup.
 
+:bulb: **Already push and pull over HTTPS without being asked for anything? Then skip to [1.4.2](#142---create-github-repository).** You already have a working setup, and there is nothing here you need to change. To confirm, run:
+
+```shell
+git config --global --get-regexp '^credential'
+```
+
+If that prints a line, a credential helper is already configured, and any of these means you are set:
+
+| Output contains | What it is |
+| --- | --- |
+| `gh auth git-credential` | GitHub CLI (what this exercise sets up) |
+| `manager` | Git Credential Manager |
+| `osxkeychain` | The macOS keychain helper |
+| `wincred` | The Windows credential store |
+| `libsecret` or `store` | Common helpers on Linux |
+
+:bulb: **Already using SSH for GitHub? Keep using it.** SSH is just as good here, and there is no reason to set up a second method. Check that it works with:
+
+```shell
+ssh -T git@github.com
+```
+
+A reply like `Hi <your-username>! You've successfully authenticated...` means you are set. It goes on to say that GitHub does not provide shell access, which is expected and not an error. If you instead get `Permission denied (publickey)`, your key is not set up, so follow the HTTPS steps below.
+
+If SSH works, then for the rest of exercise 1:
+
+- Skip the remainder of 1.4.1. You do not need the GitHub CLI.
+- In [1.4.2](#142---create-github-repository), pick the **SSH** tab rather than HTTPS when you copy the commands GitHub gives you, so your remote URL starts with `git@github.com:`.
+
+Nothing else in the workshop differs. Every later exercise just runs `git push` and `git pull`, which behave identically over either protocol.
+
 :exclamation: You cannot use your GitHub account password here. GitHub removed password authentication for Git in 2021, so something has to store a credential on your behalf. We will let the **GitHub CLI** do that for us, since it sets up both itself and Git in one go.
 
 :pencil2: Install the GitHub CLI if you do not already have it. See [cli.github.com](https://cli.github.com/), or use your package manager:
@@ -141,13 +172,13 @@ git config --global --get-regexp '^credential'
 
 :pencil2: You will come to the following screen. Follow bottom instructions (**`push an existing repository from the command line`**)
 
-:exclamation: Make sure the **HTTPS** tab is selected above the address box, so the commands you copy use a remote URL starting with `https://github.com/`. HTTPS is GitHub's default, so this normally needs no change.
+:exclamation: Check which tab is selected above the address box before you copy the commands. Pick **HTTPS** if you set up the GitHub CLI or another credential helper in 1.4.1, so the remote URL starts with `https://github.com/`. Pick **SSH** if you are using an SSH key, so it starts with `git@github.com:`. HTTPS is selected by default.
 
 <div align="center">
   <img src="../images/opprettet-repo.png" alt="GitHub quick setup page for a newly created empty repository" width="600">
 </div>
 
-:bulb: The `git push` at the end is where your credential helper kicks in. Expect a browser window or a prompt the first time, and nothing at all on every push after that.
+:bulb: If you are on HTTPS, the `git push` at the end is where your credential helper kicks in. Expect a browser window or a prompt the first time, and nothing at all on every push after that. On SSH it should just go through.
 
 After following the instructions on Github, you will have:
 

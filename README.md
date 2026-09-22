@@ -32,7 +32,9 @@ winget install --id GitHub.cli    # Windows
 brew install gh                   # macOS
 ```
 
-On Linux, see the [installation instructions for your distribution](https://github.com/cli/cli/blob/trunk/docs/install_linux.md). Exercise 1 walks through logging in, and covers what to do if you would rather not install it.
+On Linux, see the [installation instructions for your distribution](https://github.com/cli/cli/blob/trunk/docs/install_linux.md). Exercise 1 walks through logging in.
+
+:exclamation: **If you can already push to GitHub** - over SSH, or over HTTPS without being prompted - you do not need this. Exercise 1.4.1 shows you how to check, and tells you what to skip.
 
 ## How to get started
 
