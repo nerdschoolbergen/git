@@ -59,22 +59,22 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :pencil2: Check the status of the file using the command `git status`. Here you should see the file you added under `Untracked files`. This means that the file exists in the filesystem, but has not yet been added to the "staging area".
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-untracked-file.png" alt="Alt Text" width="600">
+<div align="center">
+  <img src="../images/1-untracked-file.png" alt="git status showing README.md as an untracked file" width="600">
 </div>
 
 :pencil2: Add the file to the staging area. You can do this with the command `git add README.md`. Check the status again with the command `git status`.
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-staged-file.png" alt="Alt Text" width="500">
+<div align="center">
+  <img src="../images/1-staged-file.png" alt="git status showing README.md staged for commit" width="500">
 </div>
 
 :pencil2: Create a commit that includes the file you created using the command `git commit -m <message>`. Write an appropriate commit message (`"Initial commit"` is often a suitable message for the first commit in a repository).
 
 :pencil2: Check that you have a commit in your commit log by using the command `git log`. To exit `git log`, press `q`. 
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-git-log-initial-commit.png" alt="Alt Text" width="500">
+<div align="center">
+  <img src="../images/1-git-log-initial-commit.png" alt="git log showing the initial commit" width="500">
 </div>
 
 :bulb: You have now created a git repository and made your first commit via the command line. Well done! Now we have all work locally on our own machine, but we would like to check in the code to a central location.
@@ -84,29 +84,101 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 ## 1.4 - Create GitHub Repository
 
-### 1.4.1 - Add SSH key to Github
-:bulb: To securely communicate with GitHub, we need to authenticate ourselves. We are going to add a SSH that the Git CLI client can access. This allows you to push and pull code without entering your password each time.
+### 1.4.1 - Set up GitHub authentication
 
-If you already have an SSH key set, you can skip `1.4.1`. If you already have an SSH key, but it is not added to Github, go to the step to add the SSH key. [Docs - Check for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+:bulb: To securely communicate with GitHub, we need to authenticate ourselves. In this workshop we use **HTTPS**, which is the address GitHub shows you by default and needs no key setup.
 
-:pencil2: 
-Go through the documentation steps described [here about creating an SSH key and adding it to your SSH agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+:bulb: **Already push and pull over HTTPS without being asked for anything? Then skip to [1.4.2](#142---create-github-repository).** You already have a working setup, and there is nothing here you need to change. To confirm, run:
+
+```shell
+git config --global --get-regexp '^credential'
+```
+
+If that prints a line, a credential helper is already configured, and any of these means you are set:
+
+| Output contains | What it is |
+| --- | --- |
+| `gh auth git-credential` | GitHub CLI (what this exercise sets up) |
+| `manager` | Git Credential Manager |
+| `osxkeychain` | The macOS keychain helper |
+| `wincred` | The Windows credential store |
+| `libsecret` or `store` | Common helpers on Linux |
+
+:bulb: **Already using SSH for GitHub? Keep using it.** SSH is just as good here, and there is no reason to set up a second method. Check that it works with:
+
+```shell
+ssh -T git@github.com
+```
+
+A reply like `Hi <your-username>! You've successfully authenticated...` means you are set. It goes on to say that GitHub does not provide shell access, which is expected and not an error. If you instead get `Permission denied (publickey)`, your key is not set up, so follow the HTTPS steps below.
+
+If SSH works, then for the rest of exercise 1:
+
+- Skip the remainder of 1.4.1. You do not need the GitHub CLI.
+- In [1.4.2](#142---create-github-repository), pick the **SSH** tab rather than HTTPS when you copy the commands GitHub gives you, so your remote URL starts with `git@github.com:`.
+
+Nothing else in the workshop differs. Every later exercise just runs `git push` and `git pull`, which behave identically over either protocol.
+
+:exclamation: You cannot use your GitHub account password here. GitHub removed password authentication for Git in 2021, so something has to store a credential on your behalf. We will let the **GitHub CLI** do that for us, since it sets up both itself and Git in one go.
+
+:pencil2: Install the GitHub CLI if you do not already have it. See [cli.github.com](https://cli.github.com/), or use your package manager:
+
+```shell
+winget install --id GitHub.cli    # Windows
+brew install gh                   # macOS
+```
+
+:book: On Linux, follow the [installation instructions for your distribution](https://github.com/cli/cli/blob/trunk/docs/install_linux.md).
+
+:pencil2: Log in:
+
+```shell
+gh auth login
+```
+
+:book: Answer the prompts as follows:
+
+- **What account do you want to log into?** `GitHub.com`
+- **What is your preferred protocol for Git operations?** `HTTPS`
+- **Authenticate Git with your GitHub credentials?** `Yes`
+- **How would you like to authenticate?** `Login with a web browser`, then follow the steps in your browser
+
+:exclamation: The third answer is the important one. That is what registers `gh` as Git's credential helper, so that `git push` and `git pull` work without asking you for anything.
+
+:pencil2: Check that it worked:
+
+```shell
+gh auth status
+git config --global --get-regexp '^credential'
+```
+
+:bulb: `gh auth status` should report that you are logged in. The second command lists the credential settings Git now has, and should include a line ending in `gh auth git-credential`. If it prints nothing at all, you likely answered "No" to the third prompt - run `gh auth setup-git` to fix it without logging in again.
+
+:bulb: Note that `gh` registers itself only for `github.com`, as `credential.https://github.com.helper`, rather than as a global default. That is why we list all credential settings above instead of asking for plain `credential.helper`, which would look empty even when everything is set up correctly.
+
+:bulb: If you would rather not install the GitHub CLI, the alternative is **Git Credential Manager**. On Windows it is already included with Git for Windows 2.29 and newer. On macOS, `brew install --cask git-credential-manager`. On Linux, see the [installation guide](https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/install.md). GitHub's own write-up of both options is [Caching your GitHub credentials in Git](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git).
+
+:bulb: SSH keys are a perfectly good alternative and you will meet them on real projects, but they take longer to set up, so we stick to HTTPS here. If you are curious afterwards, see [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ### 1.4.2 - Create Github repository
 
 :pencil2: Create a GitHub repository on github.com. If you don't have a GitHub account, you'll need to create one. Go to your profile and select the "Repositories" tab. Here you'll find a large green button labeled "New"
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/nytt-repo.png" alt="Alt Text" width="400" >
+<div align="center">
+  <img src="../images/nytt-repo.png" alt="The green New button on the GitHub Repositories tab" width="400" >
 </div>
 
 :book: Choose an appropriate name under **`Repository name`** (Suggestion `nerdschool-git-workshop`). Do not select any other settings, and click **`Create repository`**.
 
 :pencil2: You will come to the following screen. Follow bottom instructions (**`push an existing repository from the command line`**)
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/opprettet-repo.png" alt="Alt Text" width="600">
+:exclamation: Check which tab is selected above the address box before you copy the commands. Pick **HTTPS** if you set up the GitHub CLI or another credential helper in 1.4.1, so the remote URL starts with `https://github.com/`. Pick **SSH** if you are using an SSH key, so it starts with `git@github.com:`. HTTPS is selected by default.
+
+<div align="center">
+  <img src="../images/opprettet-repo.png" alt="GitHub quick setup page for a newly created empty repository" width="600">
 </div>
+
+:bulb: If you are on HTTPS, the `git push` at the end is where your credential helper kicks in. Expect a browser window or a prompt the first time, and nothing at all on every push after that. On SSH it should just go through.
 
 After following the instructions on Github, you will have:
 
