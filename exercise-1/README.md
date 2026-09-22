@@ -59,22 +59,22 @@ Initialized empty Git repository in /[path to directory]/git-workshop-files/.git
 
 :pencil2: Check the status of the file using the command `git status`. Here you should see the file you added under `Untracked files`. This means that the file exists in the filesystem, but has not yet been added to the "staging area".
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-untracked-file.png" alt="Alt Text" width="600">
+<div align="center">
+  <img src="../images/1-untracked-file.png" alt="git status showing README.md as an untracked file" width="600">
 </div>
 
 :pencil2: Add the file to the staging area. You can do this with the command `git add README.md`. Check the status again with the command `git status`.
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-staged-file.png" alt="Alt Text" width="500">
+<div align="center">
+  <img src="../images/1-staged-file.png" alt="git status showing README.md staged for commit" width="500">
 </div>
 
 :pencil2: Create a commit that includes the file you created using the command `git commit -m <message>`. Write an appropriate commit message (`"Initial commit"` is often a suitable message for the first commit in a repository).
 
 :pencil2: Check that you have a commit in your commit log by using the command `git log`. To exit `git log`, press `q`. 
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/1-git-log-initial-commit.png" alt="Alt Text" width="500">
+<div align="center">
+  <img src="../images/1-git-log-initial-commit.png" alt="git log showing the initial commit" width="500">
 </div>
 
 :bulb: You have now created a git repository and made your first commit via the command line. Well done! Now we have all work locally on our own machine, but we would like to check in the code to a central location.
@@ -96,16 +96,18 @@ Go through the documentation steps described [here about creating an SSH key and
 
 :pencil2: Create a GitHub repository on github.com. If you don't have a GitHub account, you'll need to create one. Go to your profile and select the "Repositories" tab. Here you'll find a large green button labeled "New"
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/nytt-repo.png" alt="Alt Text" width="400" >
+<div align="center">
+  <img src="../images/nytt-repo.png" alt="The green New button on the GitHub Repositories tab" width="400" >
 </div>
 
 :book: Choose an appropriate name under **`Repository name`** (Suggestion `nerdschool-git-workshop`). Do not select any other settings, and click **`Create repository`**.
 
 :pencil2: You will come to the following screen. Follow bottom instructions (**`push an existing repository from the command line`**)
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/opprettet-repo.png" alt="Alt Text" width="600">
+:exclamation: GitHub shows the **HTTPS** address by default. Since we set up an SSH key in 1.4.1, click the **SSH** tab above the address box before you copy the commands, so the remote URL starts with `git@github.com:` and not `https://`.
+
+<div align="center">
+  <img src="../images/opprettet-repo.png" alt="GitHub quick setup page for a newly created empty repository" width="600">
 </div>
 
 After following the instructions on Github, you will have:
