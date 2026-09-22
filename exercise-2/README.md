@@ -57,12 +57,12 @@ export const greeting = (firstname: string, lastname: string) => {
 
 You can find the `diff` tool in VS Code under the Source Control tab on your left hand side. 
 
-![alt text](../images/2-vscode-git-icon.png)
+![The Source Control icon in the VS Code sidebar](../images/2-vscode-git-icon.png)
 
 :bulb: Your diff should look something like this 
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/2-vscode-diff.png">
+<div align="center">
+  <img src="../images/2-vscode-diff.png" alt="The VS Code diff view showing changes to index.ts">
 </div>
 
 
@@ -72,18 +72,22 @@ You can find the `diff` tool in VS Code under the Source Control tab on your lef
 
 :bulb: When working together, we typically make changes in a branch and merge to a central branch (`main` or `master`). This way we can separate finished and unfinished code, and can work freely in our own branch until our work is ready to go into the central branch (and further out to production).
 
-:bulb: When you merge a branch, we create a dedicated commit in the git history that describes the changes in the commits you're merging in. This acts as a bridge between the history in the 2 different branches and ensures we get a shared history in the branch we're merging into.
+:bulb: A merge can create a dedicated commit in the git history that describes the changes in the commits you're merging in. This acts as a bridge between the history in the 2 different branches and ensures we get a shared history in the branch we're merging into.
+
+:exclamation: Git does not always create such a commit. If nothing has happened on `main` since you branched out, Git can simply move the `main` pointer forward to your latest commit. This is called a **fast-forward**, and it leaves no merge commit and no trace that a branch ever existed. Since we want to see the merge commit, we will ask Git for one explicitly with the `--no-ff` (no fast-forward) flag.
 
 :pencil2: Incorporate the changes you made in `feature-branch-1` into the `main` branch. The commands below show how to check out the `main` branch, and then merge in the changes from your feature branch.
 
 ```sh
 git checkout main
-git merge feature-branch-1
+git merge --no-ff feature-branch-1
 ```
 
 :book: An editor window will open (e.g. Visual Studio Code, Vi, Nano). This is in case you want to further describe the merge commit.
 
 :pencil2: Save and close the editor window to complete the merge.
+
+:bulb: Try running `git log --graph --oneline`. You should see the merge commit joining the two lines of history back together.
 
 
 :book: Below is an updated version of our diagram: 
@@ -101,12 +105,15 @@ gitGraph
 
 When multiple people work together, you often end up working in the same file and may change the same parts of the code. This happens relatively often when working in larger teams. For Git to know how changes should be consolidated, you need to resolve any conflicts. Now we will create an artificial conflict that we will resolve.
 
+:bulb: The branch numbering jumps from 1 to 3 on purpose, so that branch names stay unique across the whole workshop. You have not missed a step.
+
 :pencil2: Check out a feature branch, `feature-branch-3`, from the `main` branch. Replace the contents of `index.ts` with the contents of `code/2.3-change-1.ts` from this repository. Commit the changes in your branch.
 
-:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `index.ts` with the contents of `code/2.3-change-2.ts` from this repository. 
+:pencil2: Check out the `main` branch, and from the `main` branch, create a new branch, `feature-branch-4`. Replace the contents of `index.ts` with the contents of `code/2.3-change-2.ts` from this repository. Commit the changes in your branch.
 
+:exclamation: Do not skip the commit. If you leave the change uncommitted, it follows you when you check out `main`, and the next merge will refuse to run with `error: Your local changes to the following files would be overwritten by merge`.
 
-:pencil2: Merge `feature-branch-3` into the `main` branch. Then try to merge `feature-branch-4` into the `main` branch.
+:pencil2: Merge `feature-branch-3` into the `main` branch (use `git merge --no-ff feature-branch-3`, so we get a merge commit here too). Then try to merge `feature-branch-4` into the `main` branch.
 
 :bulb: We now have two feature branches with changes that should cause a conflict when we attempt to merge them both. Your git state should look something like this:
 
@@ -130,15 +137,15 @@ gitGraph
 
 You should be notified in the CLI that your merge contains a conflict. Open the VS Code merge tool, by finding the file under the "Merge Changes" list under the Source Control tab in VS Code. Press **"Resolve in Merge Editor"** as shown below. 
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/2-ready-for-conflict-resolvement.png" alt="Alt Text" width="800">
+<div align="center">
+  <img src="../images/2-ready-for-conflict-resolvement.png" alt="The conflicted file under Merge Changes in VS Code Source Control" width="800">
 </div>
 
 
 :bulb: You will see 3 windows. A window on the left titled `Incoming` shows the changes from the branch being merged into `main`. You have a window called `Current` which shows the content in main. Finally, you have a `Result` window at the bottom that shows what the final merge will look like.
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/2-conflict-merge.png" alt="Alt Text" width="800">
+<div align="center">
+  <img src="../images/2-conflict-merge.png" alt="The VS Code three-way merge editor showing Incoming, Current and Result" width="800">
 </div>
 
 :pencil2: Select `Accept Incoming` in the `Incoming` window to choose which side to keep. Then click `Complete Merge`.
@@ -147,8 +154,8 @@ You should be notified in the CLI that your merge contains a conflict. Open the 
 
 :pencil2: Check `git log`. You should now have a merge commit in your log.
 
-<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
-  <img src="../images/2-git-log-merge-commit.png" alt="Alt Text" width="500">
+<div align="center">
+  <img src="../images/2-git-log-merge-commit.png" alt="git log showing the merge commit" width="500">
 </div>
 
 
