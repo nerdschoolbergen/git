@@ -1,4 +1,4 @@
-# Introduction to Version Control with Git
+# Introduction to Git using the CLI
 
 Git is an essential tool in a developer's toolbox, widely regarded as the most popular version control system. Understanding how to use Git effectively is crucial for tracking changes in files, improving productivity, and collaborating efficiently with others.
 
